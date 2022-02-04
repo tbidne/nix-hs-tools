@@ -23,11 +23,16 @@
           haskell-overlay
         ];
       };
+      cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
       hlint = import ./tools/hlint.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs; };
       stylish = import ./tools/stylish.nix { inherit pkgs; };
     in
     {
+      apps.cabal-fmt = {
+        type = "app";
+        program = "${cabal-fmt}";
+      };
       apps.hlint = {
         type = "app";
         program = "${hlint}";
