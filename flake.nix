@@ -23,12 +23,22 @@
           haskell-overlay
         ];
       };
+      hlint = import ./tools/hlint.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs; };
+      stylish = import ./tools/stylish.nix { inherit pkgs; };
     in
     {
+      apps.hlint = {
+        type = "app";
+        program = "${hlint}";
+      };
       apps.ormolu = {
         type = "app";
         program = "${ormolu}";
+      };
+      apps.stylish = {
+        type = "app";
+        program = "${stylish}";
       };
 
       devShell = pkgs.mkShell {
