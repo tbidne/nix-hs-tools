@@ -26,6 +26,7 @@
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
       hie = import ./tools/hie.nix { inherit pkgs; };
       hlint = import ./tools/hlint.nix { inherit pkgs; };
+      nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs; };
       stylish = import ./tools/stylish.nix { inherit pkgs; };
     in
@@ -41,6 +42,10 @@
       apps.hlint = {
         type = "app";
         program = "${hlint}";
+      };
+      apps.nixpkgs-fmt = {
+        type = "app";
+        program = "${nixpkgs-fmt}";
       };
       apps.ormolu = {
         type = "app";

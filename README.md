@@ -4,9 +4,13 @@ This repository contains a list of haskell development tools, provided by nix.
 
 # Tools
 
-## Formatters
+## Haskell
 
-### Cabal-Fmt
+These are tools that specifically operate on haskell source/build files.
+
+### Formatters
+
+#### Cabal-Fmt
 
 **Source:** https://github.com/phadej/cabal-fmt
 
@@ -21,7 +25,7 @@ This repository contains a list of haskell development tools, provided by nix.
 nix run github:tbidne/nix-hs-tools#cabal-fmt -- some-project.cabal
 ```
 
-### Ormolu
+#### Ormolu
 
 **Source:** https://github.com/tweag/ormolu
 
@@ -42,7 +46,7 @@ nix run github:tbidne/nix-hs-tools#ormolu -- ../some-dir --mode inplace --ghc-op
 nix run github:tbidne/nix-hs-tools#ormolu -- . --cabal-default-extensions
 ```
 
-### Stylish
+#### Stylish
 
 **Source:** https://github.com/haskell/stylish-haskell
 
@@ -57,9 +61,9 @@ nix run github:tbidne/nix-hs-tools#ormolu -- . --cabal-default-extensions
 nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 ```
 
-## Linters
+### Linters
 
-### HLint
+#### HLint
 
 **Source:** https://github.com/ndmitchell/hlint
 
@@ -73,9 +77,9 @@ nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 nix run github:tbidne/nix-hs-tools#hlint -- .
 ```
 
-## Miscellaneous
+### Miscellaneous
 
-### HIE
+#### HIE
 
 **Source:** https://github.com/Avi-D-coder/implicit-hie
 
@@ -87,4 +91,24 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 ```
 nix run github:tbidne/nix-hs-tools#hie
+```
+
+## Nix
+
+These are nix tools that are not directly related to haskell development, but are nontheless useful for haskell+nix development.
+
+### Formatters
+
+#### Nixpkgs-Fmt
+
+**Source:** https://github.com/nix-community/nixpkgs-fmt
+
+**Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in `./`.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#nixpkgs-fmt`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
 ```
