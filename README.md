@@ -63,7 +63,7 @@ nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 
 **Source:** https://github.com/ndmitchell/hlint
 
-**Description:** The `hlint` linter. Arguments are passed through
+**Description:** The `hlint` linter. Arguments are passed through.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- <args>`.
 
@@ -71,4 +71,20 @@ nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 
 ```
 nix run github:tbidne/nix-hs-tools#hlint -- .
+```
+
+## Miscellaneous
+
+### HIE
+
+**Source:** https://github.com/Avi-D-coder/implicit-hie
+
+**Description:** The `gen-hie` linter. Redirects the output to `hie.yaml`.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#hie`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#hie
 ```
