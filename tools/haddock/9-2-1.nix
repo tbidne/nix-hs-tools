@@ -2,6 +2,7 @@
 
 let
   cabal = pkgs.haskell.packages.ghc921.cabal-install;
+  ghc = pkgs.haskell.packages.ghc921.ghc;
 in pkgs.writeShellScript "haddock.sh" ''
   dir=.
   threshold=100
@@ -20,7 +21,7 @@ in pkgs.writeShellScript "haddock.sh" ''
     shift
   done
 
-  metrics_string=$(${cabal}/bin/cabal haddock ''${args[@]} )
+  metrics_string=$(${cabal}/bin/cabal haddock --with-compiler=${ghc}/bin/ghc ''${args[@]} )
   readarray -t metrics <<<"$metrics_string"
 
   # This is extremely gross (thanks bash). Generally, lines look like:
