@@ -92,9 +92,9 @@ nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 
 **Source:** https://github.com/ndmitchell/hlint
 
-**Description:** The `hlint` linter. Arguments are passed through.
+**Description:** The `hlint` linter. Runs recursively on the current directory, though this can be overridden with `--dir`. Ignores `dist-newstyle` and `stack-work`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- [--dir PATH] <args>`.
 
 **Examples:**
 
