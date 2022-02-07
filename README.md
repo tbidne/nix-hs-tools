@@ -11,6 +11,7 @@ This repository contains a list of haskell development tools, provided by nix.
     - [Linters-HS](#linters-hs)
       - [HLint](#hlint)
     - [Miscellaneous-HS](#miscellaneous-hs)
+      - [Haddock](#haddock)
       - [HIE](#hie)
   - [Nix](#nix)
     - [Formatters-Nix](#formatters-nix)
@@ -103,6 +104,31 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 ```
 
 ### Miscellaneous-HS
+
+#### Haddock
+
+**Source:** https://haskell-haddock.readthedocs.io/en/latest/
+
+**Description:** Tool for checking haddock coverage. Because this requires `cabal` and thus a ghc version, we provide multiple versions. Supported versions:
+
+* `8-10-7`
+* `9-0-2`
+* `9-2-1`
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock_<vers> -- [--threshold PERCENTAGE] [--exclude MODULE] <args>`.
+
+**Examples:**
+
+```
+# checks that all modules in the default package have 100% haddock coverage
+nix run github:tbidne/nix-hs-tools#haddock_8-10-7
+
+# checks that all modules in the default package have 70% haddock coverage
+nix run github:tbidne/nix-hs-tools#haddock_9-0-2 -- --threshold 70
+
+# checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
+nix run github:tbidne/nix-hs-tools#haddock_9-2-1 -- --exclude Data.Foo --exclude Bar --haddock-all
+```
 
 #### HIE
 

@@ -26,6 +26,9 @@
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
       hie = import ./tools/hie.nix { inherit pkgs; };
       hlint = import ./tools/hlint.nix { inherit pkgs; };
+      haddock_8-10-7 = import ./tools/haddock/8-10-7.nix { inherit pkgs; };
+      haddock_9-0-2 = import ./tools/haddock/9-0-2.nix { inherit pkgs; };
+      haddock_9-2-1 = import ./tools/haddock/9-2-1.nix { inherit pkgs; };
       nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs; };
       stylish = import ./tools/stylish.nix { inherit pkgs; };
@@ -42,6 +45,18 @@
       apps.hlint = {
         type = "app";
         program = "${hlint}";
+      };
+      apps.haddock_8-10-7 = {
+        type = "app";
+        program = "${haddock_8-10-7}";
+      };
+      apps.haddock_9-0-2 = {
+        type = "app";
+        program = "${haddock_9-0-2}";
+      };
+      apps.haddock_9-2-1 = {
+        type = "app";
+        program = "${haddock_9-2-1}";
       };
       apps.nixpkgs-fmt = {
         type = "app";
