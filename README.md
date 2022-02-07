@@ -36,15 +36,18 @@ These are tools that specifically operate on haskell source/build files.
 
 **Source:** https://github.com/phadej/cabal-fmt
 
-**Description:** The `cabal-fmt` formatter for `cabal` files.
+**Description:** The `cabal-fmt` formatter for `cabal` files. By default, searches the current directory for `*.cabal` files. Otherwise the search directory can be specified with `--dir DIR`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#cabal-fmt -- <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#cabal-fmt -- [--dir PATH] <args>`.
 
 **Examples:**
 
 ```
-# fails if any files in the current (recursive) path are not formatted.
-nix run github:tbidne/nix-hs-tools#cabal-fmt -- some-project.cabal
+# runs the formatter on *.cabal files in the current directory
+nix run github:tbidne/nix-hs-tools#cabal-fmt
+
+# runs the formatter on *.cabal files in ../foo, and passes the --check flag
+nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 ```
 
 #### Ormolu
