@@ -2,13 +2,35 @@
 
 This repository contains a list of haskell development tools, provided by nix.
 
+- [Tools](#tools)
+  - [Haskell](#haskell)
+    - [Formatters-HS](#formatters-hs)
+      - [Cabal-Fmt](#cabal-fmt)
+      - [Ormolu](#ormolu)
+      - [Stylish](#stylish)
+    - [Linters-HS](#linters-hs)
+      - [HLint](#hlint)
+    - [Miscellaneous-HS](#miscellaneous-hs)
+      - [HIE](#hie)
+  - [Nix](#nix)
+    - [Formatters-Nix](#formatters-nix)
+      - [Nixpkgs-Fmt](#nixpkgs-fmt)
+
 # Tools
+
+In the usage descriptions, `<args>` references tool-specific arguments that are passed-through. For example, in ormolu's usage:
+
+```
+# nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
+```
+
+`--dir` and `--no-cabal` are args specific to our nixified tool (see #ormolu for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
 
 ## Haskell
 
 These are tools that specifically operate on haskell source/build files.
 
-### Formatters
+### Formatters-HS
 
 #### Cabal-Fmt
 
@@ -29,21 +51,21 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- some-project.cabal
 
 **Source:** https://github.com/tweag/ormolu
 
-**Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the parameter directory, ignoring `dist-newstyle` and `.stack-work`.
+**Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`. Additionally, runs with the `--cabal-default-extensions` flag, though this can be disabled with `--no-cabal`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- <path> <args>`. Path is required; all other args are optional.
+**Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>`.
 
 **Examples:**
 
 ```
 # fails if any files in the current (recursive) path are not formatted.
-nix run github:tbidne/nix-hs-tools#ormolu -- . --mode check
+nix run github:tbidne/nix-hs-tools#ormolu -- --mode check
 
-# formats all files in some-dir, passing in language extensions.
-nix run github:tbidne/nix-hs-tools#ormolu -- ../some-dir --mode inplace --ghc-opt -XImportQualifiedPost --ghc-opt -XTypeApplications
+# formats all files in some-dir
+nix run github:tbidne/nix-hs-tools#ormolu -- --dir ../some-dir --mode inplace
 
-# uses default-extensions from cabal file
-nix run github:tbidne/nix-hs-tools#ormolu -- . --cabal-default-extensions
+# specifies extensions manually; does not use cabal file's default-extensions
+nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualifiedPost --ghc-opt -XTypeApplications
 ```
 
 #### Stylish
@@ -61,7 +83,7 @@ nix run github:tbidne/nix-hs-tools#ormolu -- . --cabal-default-extensions
 nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 ```
 
-### Linters
+### Linters-HS
 
 #### HLint
 
@@ -77,7 +99,7 @@ nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
 nix run github:tbidne/nix-hs-tools#hlint -- .
 ```
 
-### Miscellaneous
+### Miscellaneous-HS
 
 #### HIE
 
@@ -97,7 +119,7 @@ nix run github:tbidne/nix-hs-tools#hie
 
 These are nix tools that are not directly related to haskell development, but are nontheless useful for haskell+nix development.
 
-### Formatters
+### Formatters-Nix
 
 #### Nixpkgs-Fmt
 

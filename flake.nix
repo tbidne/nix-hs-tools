@@ -7,10 +7,10 @@
     , nixpkgs
     , self
     }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
+    flake-utils.lib.eachDefaultSystem (system:
     let
       haskell-overlay = final: prev: {
-        ormolu = final.haskell.packages.ghc921.callHackage "ormolu" "0.4.0.0" { };
+        ormolu = final.haskell.packages.ghc921.ormolu_0_4_0_0;
 
         # disable all tests
         mkDerivation = args: prev.mkDerivation (args // {
