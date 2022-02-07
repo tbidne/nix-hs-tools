@@ -12,5 +12,5 @@ pkgs.writeShellScript "nixpkgs-fmt.sh" ''
     fi
     shift
   done
-  ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt -- $dir ''${args[@]}
+  ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt $dir ''${args[@]}
 ''
