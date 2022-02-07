@@ -128,9 +128,9 @@ These are nix tools that are not directly related to haskell development, but ar
 
 **Source:** https://github.com/nix-community/nixpkgs-fmt
 
-**Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in `./`.
+**Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#nixpkgs-fmt`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#nixpkgs-fmt -- [--dir PATH] <args>`.
 
 **Examples:**
 
