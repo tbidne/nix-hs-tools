@@ -108,7 +108,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 **Source:** https://github.com/Avi-D-coder/implicit-hie
 
-**Description:** The `gen-hie` linter. Redirects the output to `hie.yaml`.
+**Description:** The `gen-hie` tool for generating an `hie` file. Redirects the output to `hie.yaml`.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#hie`.
 
