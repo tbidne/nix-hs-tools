@@ -75,15 +75,15 @@ nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualif
 
 **Source:** https://github.com/haskell/stylish-haskell
 
-**Description:** The `stylish-haskell` code formatter for haskell source files. Because stylish has built-in support for running recursively on a directory (via the `--recursive` flag), there is no extra functionality. The executable is provided as-is.
+**Description:** The `stylish-haskell` code formatter for haskell source files. Runs `stylish-haskell` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#stylish -- <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#stylish -- [--dir PATH] <args>`.
 
 **Examples:**
 
 ```
-# fails if any files in the current (recursive) path are not formatted.
-nix run github:tbidne/nix-hs-tools#stylish-- --recursive ./src
+# (recursively) formats all files in the current directory
+nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 ```
 
 ### Linters-HS
