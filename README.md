@@ -115,7 +115,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 * `9-0-2`
 * `9-2-1`
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock_<vers> -- [--threshold PERCENTAGE] [--exclude MODULE] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock_<vers> -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
 
 **Examples:**
 
@@ -127,7 +127,7 @@ nix run github:tbidne/nix-hs-tools#haddock_8-10-7
 nix run github:tbidne/nix-hs-tools#haddock_9-0-2 -- --threshold 70
 
 # checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
-nix run github:tbidne/nix-hs-tools#haddock_9-2-1 -- --exclude Data.Foo --exclude Bar --haddock-all
+nix run github:tbidne/nix-hs-tools#haddock_9-2-1 -- --exclude Data.Foo -x Bar --haddock-all
 ```
 
 #### HIE

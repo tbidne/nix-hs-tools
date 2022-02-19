@@ -3,13 +3,14 @@
 let
   cabal = pkgs.haskell.packages.ghc921.cabal-install;
   ghc = pkgs.haskell.packages.ghc921.ghc;
-in pkgs.writeShellScript "haddock.sh" ''
+in
+pkgs.writeShellScript "haddock.sh" ''
   dir=.
   threshold=100
   excluded=()
   args=()
   while [ $# -gt 0 ]; do
-    if [[ $1 == "--exclude" ]]; then
+    if [[ $1 == "--exclude" || $1 == "-x" ]]; then
       excluded+=($2)
       shift
     elif [[ $1 == "--threshold" ]]; then
