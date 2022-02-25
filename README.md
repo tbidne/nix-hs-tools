@@ -1,11 +1,9 @@
 # nix-hs-tools
 
-### This repository contains a list of haskell development tools, provided by nix.
-
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
+[![nix](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/nix/main?label=nix&logo=nixos&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/nix_ci.yaml)
 [![style](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/style/main?label=style&logoColor=white&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/style_ci.yaml)
-
----
+[![BSD-3-Clause](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/BSD-3-Clause)
 
 - [Tools](#tools)
   - [Haskell](#haskell)
@@ -21,6 +19,8 @@
   - [Nix](#nix)
     - [Formatters-Nix](#formatters-nix)
       - [Nixpkgs-Fmt](#nixpkgs-fmt)
+
+This repository contains a list of haskell development tools, provided by nix.
 
 # Tools
 
