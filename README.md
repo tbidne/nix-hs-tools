@@ -27,10 +27,16 @@ This repository contains a list of haskell development tools, provided by nix.
 In the usage descriptions, `<args>` references tool-specific arguments that are passed-through. For example, in ormolu's usage:
 
 ```
-# nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
+nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
 ```
 
-`--dir` and `--no-cabal` are args specific to our nixified tool (see #ormolu for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
+`--dir` and `--no-cabal` are args specific to our nixified tool (see [ormolu](#ormolu) for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
+
+One can also fix a specific version of `nix-hs-tools` e.g.
+
+```
+nix run github:tbidne/nix-hs-tools/0.1.0.0#<tool> -- <args>
+```
 
 ## Haskell
 
