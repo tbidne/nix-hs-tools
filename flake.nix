@@ -10,7 +10,8 @@
     flake-utils.lib.eachDefaultSystem (system:
     let
       haskell-overlay = final: prev: {
-        ormolu = final.haskell.packages.ghc921.ormolu_0_4_0_0;
+        fourmolu = final.haskell.packages.ghc922.fourmolu_0_6_0_0;
+        ormolu = final.haskell.packages.ghc922.ormolu_0_4_0_0;
 
         # disable all tests
         mkDerivation = args: prev.mkDerivation (args // {
@@ -23,20 +24,26 @@
           haskell-overlay
         ];
       };
+      find-hs-non-build = "find $dir -type f -name \"*.hs\" ! -path \"./.*\" ! -path \"./*dist-newstyle/*\" ! -path \"./*stack-work/*\"";
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
+      fourmolu = import ./tools/fourmolu.nix { inherit pkgs find-hs-non-build; };
       hie = import ./tools/hie.nix { inherit pkgs; };
       hlint = import ./tools/hlint.nix { inherit pkgs; };
       haddock_8-10-7 = import ./tools/haddock/8-10-7.nix { inherit pkgs; };
       haddock_9-0-2 = import ./tools/haddock/9-0-2.nix { inherit pkgs; };
       haddock_9-2-1 = import ./tools/haddock/9-2-1.nix { inherit pkgs; };
       nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit pkgs; };
-      ormolu = import ./tools/ormolu.nix { inherit pkgs; };
-      stylish = import ./tools/stylish.nix { inherit pkgs; };
+      ormolu = import ./tools/ormolu.nix { inherit pkgs find-hs-non-build; };
+      stylish = import ./tools/stylish.nix { inherit pkgs find-hs-non-build; };
     in
     {
       apps.cabal-fmt = {
         type = "app";
         program = "${cabal-fmt}";
+      };
+      apps.fourmolu = {
+        type = "app";
+        program = "${fourmolu}";
       };
       apps.hie = {
         type = "app";
@@ -71,7 +78,7 @@
         program = "${stylish}";
       };
 
-      devShell = pkgs.mkShell {
+      devShells.${system} = pkgs.mkShell {
         buildInputs = [ pkgs.nixpkgs-fmt ];
       };
     });

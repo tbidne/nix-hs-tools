@@ -34,6 +34,9 @@ jobs:
       - name: Test cabal-fmt
         run: nix run .#cabal-fmt -- --help
 
+      - name: Test fourmolu
+        run: nix run .#fourmolu -- --help
+
       - name: Test hlint
         run: nix run .#hlint -- --help
 
@@ -43,8 +46,8 @@ jobs:
       - name: Test haddock-9.0.2
         run: nix run .#haddock_9-0-2 -- --help
 
-      - name: Test haddock-9.2.1
-        run: nix run .#haddock_9-2-1 -- --help
+      - name: Test haddock-9.2.2
+        run: nix run .#haddock_9-2-2 -- --help
 
       # for some reason, 'nix run .#nixpkgs-fmt -- --help' dies on ci
       - name: Test nixpkgs-fmt

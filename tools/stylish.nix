@@ -1,4 +1,6 @@
-{ pkgs }:
+{ pkgs
+, find-hs-non-build
+}:
 
 pkgs.writeShellScript "stylish.sh" ''
   dir=.
@@ -12,5 +14,5 @@ pkgs.writeShellScript "stylish.sh" ''
     fi
     shift
   done
-  find $dir -type d \( -name dist-newstyle -o -name stack-work \) -prune -false -o -name '*.hs' | xargs ${pkgs.stylish-haskell}/bin/stylish-haskell ''${args[@]}
+  ${find-hs-non-build} | xargs ${pkgs.stylish-haskell}/bin/stylish-haskell ''${args[@]}
 ''

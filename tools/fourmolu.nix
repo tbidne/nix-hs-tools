@@ -2,7 +2,7 @@
 , find-hs-non-build
 }:
 
-pkgs.writeShellScript "ormolu.sh" ''
+pkgs.writeShellScript "fourmolu.sh" ''
   dir=.
   cabal="--cabal-default-extensions"
   args=()
@@ -17,5 +17,5 @@ pkgs.writeShellScript "ormolu.sh" ''
     fi
     shift
   done
-  ${find-hs-non-build} | xargs ${pkgs.ormolu}/bin/ormolu $cabal ''${args[@]}
+  ${find-hs-non-build} | xargs ${pkgs.fourmolu}/bin/fourmolu $cabal ''${args[@]}
 ''

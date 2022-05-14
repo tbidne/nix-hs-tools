@@ -62,6 +62,27 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt
 nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 ```
 
+#### Fourmolu
+
+**Source:** https://github.com/fourmolu/fourmolu
+
+**Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`. Additionally, runs with the `--cabal-default-extensions` flag, though this can be disabled with `--no-cabal`.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#fourmolu -- [--dir PATH] [--no-cabal] <args>`.
+
+**Examples:**
+
+```
+# fails if any files in the current (recursive) path are not formatted.
+nix run github:tbidne/nix-hs-tools#fourmolu -- --mode check
+
+# formats all files in some-dir
+nix run github:tbidne/nix-hs-tools#fourmolu -- --dir ../some-dir --mode inplace
+
+# specifies extensions manually; does not use cabal file's default-extensions
+nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQualifiedPost --ghc-opt -XTypeApplications
+```
+
 #### Ormolu
 
 **Source:** https://github.com/tweag/ormolu

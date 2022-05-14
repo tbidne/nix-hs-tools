@@ -1,8 +1,8 @@
 { pkgs }:
 
 let
-  cabal = pkgs.haskell.packages.ghc921.cabal-install;
-  ghc = pkgs.haskell.packages.ghc921.ghc;
+  cabal = pkgs.haskell.packages.ghc922.cabal-install;
+  ghc = pkgs.haskell.packages.ghc922.ghc;
 in
 pkgs.writeShellScript "haddock.sh" ''
   dir=.

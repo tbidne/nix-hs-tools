@@ -13,5 +13,5 @@ pkgs.writeShellScript "hlint.sh" ''
     shift
   done
 
-  ${pkgs.hlint}/bin/hlint $dir --ignore-glob=dist-newstyle --ignore-glob=stack-work  ''${args[@]}
+  ${pkgs.hlint}/bin/hlint $dir --ignore-glob=dist-newstyle --ignore-glob=stack-work ''${args[@]}
 ''
