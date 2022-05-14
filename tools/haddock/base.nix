@@ -1,8 +1,10 @@
-{ ghcVersion }:
+{ pkgs
+, ghcVersion
+}:
 
 let
-  cabal = ghcVersion.cabal-install;
-  ghc = ghcVersion.ghc;
+  cabal = pkgs.haskell.packages.${ghcVersion}.cabal-install;
+  ghc = pkgs.haskell.packages.${ghcVersion}.ghc;
 in
 pkgs.writeShellScript "haddock.sh" ''
   dir=.

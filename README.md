@@ -143,9 +143,9 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 **Description:** Tool for checking haddock coverage. Because this requires `cabal` and thus a ghc version, we provide multiple versions. Supported versions:
 
-* `8-10-7`
-* `9-0-2`
-* `9-2-2`
+* `8-10`
+* `9-0`
+* `9-2`
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#haddock_<vers> -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
 
@@ -153,13 +153,13 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 ```
 # checks that all modules in the default package have 100% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock_8-10-7
+nix run github:tbidne/nix-hs-tools#haddock_8-10
 
 # checks that all modules in the default package have 70% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock_9-0-2 -- --threshold 70
+nix run github:tbidne/nix-hs-tools#haddock_9-0 -- --threshold 70
 
 # checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
-nix run github:tbidne/nix-hs-tools#haddock_9-2-2 -- --exclude Data.Foo -x Bar --haddock-all
+nix run github:tbidne/nix-hs-tools#haddock_9-2 -- --exclude Data.Foo -x Bar --haddock-all
 ```
 
 #### HIE
