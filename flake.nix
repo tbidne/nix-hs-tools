@@ -31,7 +31,7 @@
       hlint = import ./tools/hlint.nix { inherit pkgs; };
       haddock_8-10-7 = import ./tools/haddock/8-10-7.nix { inherit pkgs; };
       haddock_9-0-2 = import ./tools/haddock/9-0-2.nix { inherit pkgs; };
-      haddock_9-2-1 = import ./tools/haddock/9-2-1.nix { inherit pkgs; };
+      haddock_9-2-2 = import ./tools/haddock/9-2-2.nix { inherit pkgs; };
       nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs find-hs-non-build; };
       stylish = import ./tools/stylish.nix { inherit pkgs find-hs-non-build; };
@@ -61,9 +61,9 @@
         type = "app";
         program = "${haddock_9-0-2}";
       };
-      apps.haddock_9-2-1 = {
+      apps.haddock_9-2-2 = {
         type = "app";
-        program = "${haddock_9-2-1}";
+        program = "${haddock_9-2-2}";
       };
       apps.nixpkgs-fmt = {
         type = "app";
