@@ -141,25 +141,21 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 **Source:** https://haskell-haddock.readthedocs.io/en/latest/
 
-**Description:** Tool for checking haddock coverage. Because this requires `cabal` and thus a ghc version, we provide multiple versions. Supported versions:
+**Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if you are using nix to provide dev tools, this command should be run inside the same nix shell.
 
-* `8-10`
-* `9-0`
-* `9-2`
-
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock_<vers> -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
 
 **Examples:**
 
 ```
 # checks that all modules in the default package have 100% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock_8-10
+nix run github:tbidne/nix-hs-tools#haddock
 
 # checks that all modules in the default package have 70% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock_9-0 -- --threshold 70
+nix run github:tbidne/nix-hs-tools#haddock -- --threshold 70
 
 # checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
-nix run github:tbidne/nix-hs-tools#haddock_9-2 -- --exclude Data.Foo -x Bar --haddock-all
+nix run github:tbidne/nix-hs-tools#haddock -- --exclude Data.Foo -x Bar --haddock-all
 ```
 
 #### HIE

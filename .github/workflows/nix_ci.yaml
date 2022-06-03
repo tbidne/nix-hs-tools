@@ -40,14 +40,8 @@ jobs:
       - name: Test hlint
         run: nix run .#hlint -- --help
 
-      - name: Test haddock-8.10
-        run: nix run .#haddock_8-10 -- --help
-
-      - name: Test haddock-9.0
-        run: nix run .#haddock_9-0 -- --help
-
-      - name: Test haddock-9.2
-        run: nix run .#haddock_9-2 -- --help
+      - name: Test haddock
+        run: nix run .#haddock -- --nh-help
 
       # for some reason, 'nix run .#nixpkgs-fmt -- --help' dies on ci
       - name: Test nixpkgs-fmt
