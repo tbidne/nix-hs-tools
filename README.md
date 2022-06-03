@@ -1,3 +1,5 @@
+<div align="center">
+
 # Nix-HS-Tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
@@ -5,6 +7,14 @@
 [![style](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/style/main?label=style&logoColor=white&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/style_ci.yaml)
 [![BSD-3-Clause](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/BSD-3-Clause)
 
+### Haskell development tools, by Nix.
+
+</div>
+
+---
+
+- [Motivation](#motivation)
+- [Introduction](#introduction)
 - [Tools](#tools)
   - [Haskell](#haskell)
     - [Formatters-HS](#formatters-hs)
@@ -23,11 +33,20 @@
     - [Help](#help)
     - [Version](#version)
 
-This repository contains a list of haskell development tools, provided by nix.
+# Motivation
 
-# Tools
+In general, for a given tool, we provide two benefits over using the tool directly:
 
-In the usage descriptions, `<args>` references tool-specific arguments that are passed-through. For example, in ormolu's usage:
+1. The tool itself i.e. no external dependencies required other than `nix`.
+2. Common logic "on top" that is useful.
+
+For example, for `ormolu`, not only do we provide the executable itself, we also run it recursively on all files in a given directory. The default behavior is for `ormolu` to run on files individually, so we judge this to be an ergonomic improvement.
+
+We cannot always satisfy the first requirement. For example, the `haddock` tool requires `cabal` and `ghc` to be on the `$PATH` because we cannot hope to provide both in such a way that will work for an arbitrary project. In this case, the extra logic (i.e. `2`) is what is useful, so we consider this acceptable.
+
+# Introduction
+
+In the usage descriptions, `<args>` references tool-specific arguments that are passed-through. For example, in `ormolu`'s usage:
 
 ```
 nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
@@ -35,18 +54,20 @@ nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
 
 `--dir` and `--no-cabal` are args specific to our nixified tool (see [ormolu](#ormolu) for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
 
-Furthermore, each tool has a "help" page that is retrieved with `nh-help`, showing the usage.
+Furthermore, each tool has a "help" page that is retrieved with `--nh-help`, showing the usage.
 
 ```
 $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help
 usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
 ```
 
-One can also fix a specific version of `nix-hs-tools` e.g.
+The version can also be fixed e.g.
 
 ```
 nix run github:tbidne/nix-hs-tools/0.3#<tool> -- <args>
 ```
+
+# Tools
 
 ## Haskell
 
@@ -151,7 +172,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- .
 
 **Source:** https://haskell-haddock.readthedocs.io/en/latest/
 
-**Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if you are using nix to provide dev tools, this command should be run inside the same nix shell.
+**Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
 

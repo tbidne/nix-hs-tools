@@ -96,9 +96,5 @@
           echo ${version}
         ''}";
       };
-
-      devShells.${system} = pkgs.mkShell {
-        buildInputs = [ pkgs.nixpkgs-fmt ];
-      };
     });
 }
