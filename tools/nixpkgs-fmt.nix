@@ -1,10 +1,13 @@
 { pkgs }:
 
 pkgs.writeShellScript "nixpkgs-fmt.sh" ''
-  dir=.
   args=()
+  dir=.
   while [ $# -gt 0 ]; do
-    if [[ $1 == "--dir" ]]; then
+    if [[ $1 == "--nh-help" ]]; then
+      echo "usage: nix run github:tbidne/nix-hs-tools#nixpkgs-fmt -- [--dir PATH] <args>"
+      exit 0
+    elif [[ $1 == "--dir" ]]; then
       dir=$2
       shift 1
     else
@@ -12,5 +15,6 @@ pkgs.writeShellScript "nixpkgs-fmt.sh" ''
     fi
     shift
   done
+
   ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt $dir ''${args[@]}
 ''

@@ -25,6 +25,19 @@
         ];
       };
       find-hs-non-build = "find $dir -type f -name \"*.hs\" ! -path \"./.*\" ! -path \"./*dist-newstyle/*\" ! -path \"./*stack-work/*\"";
+
+      # misc
+      title = "Nix-HS-Tools";
+      desc = ''
+        Nix-HS-Tools uses nix to provide tools for haskell development. To \
+        see a tool's individual usage, pass the '--nh-help' arg e.g. \n\n\t\
+        $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help \n\t\
+        nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args> \n\n\
+        See github.com/tbidne/nix-hs-tools#readme.
+      '';
+      version = "Version: 0.3";
+
+      # tools
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
       fourmolu = import ./tools/fourmolu.nix { inherit pkgs find-hs-non-build; };
       hie = import ./tools/hie.nix { inherit pkgs; };
@@ -42,6 +55,15 @@
       apps.fourmolu = {
         type = "app";
         program = "${fourmolu}";
+      };
+      apps.help = {
+        type = "app";
+        program = "${pkgs.writeShellScript "help.sh" ''
+          echo -e "${title}: Haskell Development Tools Provided by Nix\n"
+          echo -e "Usage: nix run github:tbidne/nix-hs-tools#<tool> -- <args>\n"
+          echo -e "${desc}"
+          echo ${version}
+        ''}";
       };
       apps.hie = {
         type = "app";
@@ -70,8 +92,8 @@
       apps.version = {
         type = "app";
         program = "${pkgs.writeShellScript "version.sh" ''
-          echo nix-hs-tools
-          echo version: 0.3
+          echo ${title}
+          echo ${version}
         ''}";
       };
 

@@ -1,30 +1,24 @@
 { pkgs }:
 
 pkgs.writeShellScript "haddock.sh" ''
-  dir=.
-  threshold=100
-  help=0
-  excluded=()
   args=()
+  excluded=()
+  threshold=100
   while [ $# -gt 0 ]; do
-    if [[ $1 == "--exclude" || $1 == "-x" ]]; then
+    if [[ $1 == "--nh-help" ]]; then
+      echo "usage: nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>"
+      exit 0
+    elif [[ $1 == "--exclude" || $1 == "-x" ]]; then
       excluded+=($2)
       shift
     elif [[ $1 == "--threshold" ]]; then
       threshold=$2
       shift
-    elif [[ $1 == "--nh-help" ]]; then
-      help=1
     else
       args+=($1)
     fi
     shift
   done
-
-  if [[ $help == 1 ]]; then
-    echo "usage: nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>"
-    exit 0
-  fi
 
   metrics_string=$(cabal haddock ''${args[@]})
   if [[ $? -ne 0 ]]; then

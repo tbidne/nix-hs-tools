@@ -1,4 +1,4 @@
-# nix-hs-tools
+# Nix-HS-Tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
 [![nix](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/nix/main?label=nix&logo=nixos&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/nix_ci.yaml)
@@ -19,6 +19,9 @@
   - [Nix](#nix)
     - [Formatters-Nix](#formatters-nix)
       - [Nixpkgs-Fmt](#nixpkgs-fmt)
+  - [Information](#information)
+    - [Help](#help)
+    - [Version](#version)
 
 This repository contains a list of haskell development tools, provided by nix.
 
@@ -32,10 +35,17 @@ nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
 
 `--dir` and `--no-cabal` are args specific to our nixified tool (see [ormolu](#ormolu) for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
 
+Furthermore, each tool has a "help" page that is retrieved with `nh-help`, showing the usage.
+
+```
+$ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help
+usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
+```
+
 One can also fix a specific version of `nix-hs-tools` e.g.
 
 ```
-nix run github:tbidne/nix-hs-tools/0.1.0.0#<tool> -- <args>
+nix run github:tbidne/nix-hs-tools/0.3#<tool> -- <args>
 ```
 
 ## Haskell
@@ -191,3 +201,19 @@ These are nix tools that are not directly related to haskell development, but ar
 ```
 nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
 ```
+
+## Information
+
+These are information "tools".
+
+### Help
+
+**Description:** Returns a man page.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#help`.
+
+### Version
+
+**Description:** Returns the version.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#version`.

@@ -3,11 +3,14 @@
 }:
 
 pkgs.writeShellScript "fourmolu.sh" ''
-  dir=.
-  cabal="--cabal-default-extensions"
   args=()
+  cabal="--cabal-default-extensions"
+  dir=.
   while [ $# -gt 0 ]; do
-    if [[ $1 == "--dir" ]]; then
+    if [[ $1 == "--nh-help" ]]; then
+      echo "usage: nix run github:tbidne/nix-hs-tools#fourmolu -- [--dir PATH] [--no-cabal] <args>"
+      exit 0
+    elif [[ $1 == "--dir" ]]; then
       dir=$2
       shift
     elif [[ $1 == "--no-cabal" ]]; then
@@ -17,5 +20,6 @@ pkgs.writeShellScript "fourmolu.sh" ''
     fi
     shift
   done
+
   ${find-hs-non-build} | xargs ${pkgs.fourmolu}/bin/fourmolu $cabal ''${args[@]}
 ''
