@@ -9,15 +9,29 @@
     }:
     flake-utils.lib.eachDefaultSystem (system:
     let
-      haskell-overlay = final: prev: {
-        fourmolu = final.haskell.packages.ghc922.fourmolu_0_6_0_0;
-        ormolu = final.haskell.packages.ghc922.ormolu_0_4_0_0;
-
-        # disable all tests
-        mkDerivation = args: prev.mkDerivation (args // {
-          doCheck = false;
-        });
+      overrideIndex = haskellPackages': haskellPackages'.override {
+        all-cabal-hashes = builtins.fetchurl {
+          url = "https://github.com/commercialhaskell/all-cabal-hashes/archive/993091a69d0159755a87966c35d1b0fb2db6e01a.tar.gz";
+          sha256 = "0sas431dpk895mg0yz9z13sx9vcg3zjf866xlav0rd2c658a730l";
+        };
       };
+
+      haskell-overlay = final: prev:
+        let hp = final.pkgs.haskell.packages.ghc922; in
+        {
+          # want the latest but not in the current nixpkgs, unfortunately
+          fourmolu = final.pkgs.haskell.lib.dontCheck
+            ((overrideIndex hp).callHackage "fourmolu" "0.7.0.1" { });
+          hlint = (overrideIndex hp).callHackage "hlint" "3.4" { };
+
+          # in nixpkgs
+          ormolu = hp.ormolu_0_5_0_0;
+
+          # disable all tests
+          mkDerivation = args: prev.mkDerivation (args // {
+            doCheck = false;
+          });
+        };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -32,7 +46,7 @@
         Nix-HS-Tools uses nix to provide tools for haskell development. To \
         see a tool's individual usage, pass the '--nh-help' arg e.g. \n\n\t\
         $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help \n\t\
-        nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args> \n\n\
+        nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args> \n\n\
         See github.com/tbidne/nix-hs-tools#readme.
       '';
       version = "Version: 0.3";

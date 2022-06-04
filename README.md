@@ -49,16 +49,16 @@ We cannot always satisfy the first requirement. For example, the `haddock` tool 
 In the usage descriptions, `<args>` references tool-specific arguments that are passed-through. For example, in `ormolu`'s usage:
 
 ```
-nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
+nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
 ```
 
-`--dir` and `--no-cabal` are args specific to our nixified tool (see [ormolu](#ormolu) for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
+`--dir` is specific to our nixified tool (see [ormolu](#ormolu) for details). All other arguments (e.g. `--mode check`) are ormolu-specific arguments that are passed to the ormolu executable.
 
 Furthermore, each tool has a "help" page that is retrieved with `--nh-help`, showing the usage.
 
 ```
 $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help
-usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>
+usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
 ```
 
 The version can also be fixed e.g.
@@ -97,9 +97,9 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 
 **Source:** https://github.com/fourmolu/fourmolu
 
-**Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`. Additionally, runs with the `--cabal-default-extensions` flag, though this can be disabled with `--no-cabal`.
+**Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#fourmolu -- [--dir PATH] [--no-cabal] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#fourmolu -- [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -118,9 +118,9 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQual
 
 **Source:** https://github.com/tweag/ormolu
 
-**Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`. Additionally, runs with the `--cabal-default-extensions` flag, though this can be disabled with `--no-cabal`.
+**Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] [--no-cabal] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>`.
 
 **Examples:**
 
