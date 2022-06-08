@@ -1,6 +1,6 @@
 <div align="center">
 
-# Nix-HS-Tools
+# nix-hs-tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
 [![nix](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/nix/main?label=nix&logo=nixos&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/nix_ci.yaml)
@@ -16,26 +16,24 @@
 - [Motivation](#motivation)
 - [Introduction](#introduction)
 - [Tools](#tools)
-  - [Haskell](#haskell)
-    - [Formatters-HS](#formatters-hs)
-      - [Cabal-Fmt](#cabal-fmt)
-      - [Ormolu](#ormolu)
-      - [Stylish](#stylish)
-    - [Linters-HS](#linters-hs)
-      - [HLint](#hlint)
-    - [Miscellaneous-HS](#miscellaneous-hs)
-      - [Haddock](#haddock)
-      - [HIE](#hie)
-  - [Nix](#nix)
-    - [Formatters-Nix](#formatters-nix)
-      - [Nixpkgs-Fmt](#nixpkgs-fmt)
+  - [Haskell Formatters](#haskell-formatters)
+    - [Cabal-Fmt](#cabal-fmt)
+    - [Ormolu](#ormolu)
+    - [Stylish](#stylish)
+  - [Haskell Linters](#haskell-linters)
+    - [HLint](#hlint)
+  - [Haskell Miscellaneous](#haskell-miscellaneous)
+    - [Haddock](#haddock)
+    - [HIE](#hie)
+  - [Nix Formatters](#nix-formatters)
+    - [Nixpkgs-Fmt](#nixpkgs-fmt)
   - [Information](#information)
     - [Help](#help)
     - [Version](#version)
 
 # Motivation
 
-In general, for a given tool, we provide two benefits over using the tool directly:
+Using nix, we provide a set of common tools for haskell development. In general, for a given tool, we provide two benefits over direct usage:
 
 1. The tool itself i.e. no external dependencies required other than `nix`.
 2. Common logic "on top" that is useful.
@@ -69,13 +67,9 @@ nix run github:tbidne/nix-hs-tools/0.3#<tool> -- <args>
 
 # Tools
 
-## Haskell
+## Haskell Formatters
 
-These are tools that specifically operate on haskell source/build files.
-
-### Formatters-HS
-
-#### Cabal-Fmt
+### Cabal-Fmt
 
 **Source:** https://github.com/phadej/cabal-fmt
 
@@ -93,7 +87,7 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt
 nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 ```
 
-#### Fourmolu
+### Fourmolu
 
 **Source:** https://github.com/fourmolu/fourmolu
 
@@ -114,7 +108,7 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --dir ../some-dir --mode inplace
 nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQualifiedPost --ghc-opt -XTypeApplications
 ```
 
-#### Ormolu
+### Ormolu
 
 **Source:** https://github.com/tweag/ormolu
 
@@ -135,7 +129,7 @@ nix run github:tbidne/nix-hs-tools#ormolu -- --dir ../some-dir --mode inplace
 nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualifiedPost --ghc-opt -XTypeApplications
 ```
 
-#### Stylish
+### Stylish
 
 **Source:** https://github.com/haskell/stylish-haskell
 
@@ -150,9 +144,9 @@ nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualif
 nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 ```
 
-### Linters-HS
+## Haskell Linters
 
-#### HLint
+### HLint
 
 **Source:** https://github.com/ndmitchell/hlint
 
@@ -166,9 +160,9 @@ nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 nix run github:tbidne/nix-hs-tools#hlint -- .
 ```
 
-### Miscellaneous-HS
+## Haskell Miscellaneous
 
-#### Haddock
+### Haddock
 
 **Source:** https://haskell-haddock.readthedocs.io/en/latest/
 
@@ -189,7 +183,7 @@ nix run github:tbidne/nix-hs-tools#haddock -- --threshold 70
 nix run github:tbidne/nix-hs-tools#haddock -- --exclude Data.Foo -x Bar --haddock-all
 ```
 
-#### HIE
+### HIE
 
 **Source:** https://github.com/Avi-D-coder/implicit-hie
 
@@ -203,13 +197,9 @@ nix run github:tbidne/nix-hs-tools#haddock -- --exclude Data.Foo -x Bar --haddoc
 nix run github:tbidne/nix-hs-tools#hie
 ```
 
-## Nix
+## Nix Formatters
 
-These are nix tools that are not directly related to haskell development, but are nontheless useful for haskell+nix development.
-
-### Formatters-Nix
-
-#### Nixpkgs-Fmt
+### Nixpkgs-Fmt
 
 **Source:** https://github.com/nix-community/nixpkgs-fmt
 
@@ -223,17 +213,15 @@ These are nix tools that are not directly related to haskell development, but ar
 nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
 ```
 
-## Information
+# Information
 
-These are information "tools".
-
-### Help
+## Help
 
 **Description:** Returns a man page.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#help`.
 
-### Version
+## Version
 
 **Description:** Returns the version.
 

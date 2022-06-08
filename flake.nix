@@ -1,5 +1,5 @@
 {
-  description = "Haskell Development Tools Provided by Nix";
+  description = "Haskell Development Tools, by Nix";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   outputs =
@@ -41,9 +41,9 @@
       find-hs-non-build = "find $dir -type f -name \"*.hs\" ! -path \"./.*\" ! -path \"./*dist-newstyle/*\" ! -path \"./*stack-work/*\"";
 
       # misc
-      title = "Nix-HS-Tools";
+      title = "nix-hs-tools";
       desc = ''
-        Nix-HS-Tools uses nix to provide tools for haskell development. To \
+        nix-hs-tools uses nix to provide tools for haskell development. To \
         see a tool's individual usage, pass the '--nh-help' arg e.g. \n\n\t\
         $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help \n\t\
         nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args> \n\n\
@@ -73,7 +73,7 @@
       apps.help = {
         type = "app";
         program = "${pkgs.writeShellScript "help.sh" ''
-          echo -e "${title}: Haskell Development Tools Provided by Nix\n"
+          echo -e "${title}: Haskell development tools, by nix\n"
           echo -e "Usage: nix run github:tbidne/nix-hs-tools#<tool> -- <args>\n"
           echo -e "${desc}"
           echo ${version}
