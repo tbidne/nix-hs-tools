@@ -18,5 +18,6 @@ pkgs.writeShellScript "stylish.sh" ''
     shift
   done
 
-  ${find-hs-non-build} | xargs ${pkgs.stylish-haskell}/bin/stylish-haskell ''${args[@]}
+  ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs \
+    ${pkgs.stylish-haskell}/bin/stylish-haskell ''${args[@]}
 ''

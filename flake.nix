@@ -1,5 +1,5 @@
 {
-  description = "Haskell Development Tools, by Nix";
+  description = "Haskell Development Tools by Nix";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   outputs =
@@ -38,7 +38,8 @@
           haskell-overlay
         ];
       };
-      find-hs-non-build = "find $dir -type f -name \"*.hs\" ! -path \"./.*\" ! -path \"./*dist-newstyle/*\" ! -path \"./*stack-work/*\"";
+      excluded-dirs = "! -path \"./.*\" ! -path \"./*dist-newstyle/*\" ! -path \"./*stack-work/*\"";
+      find-hs-non-build = "${pkgs.findutils}/bin/find $dir -type f -name \"*.hs\" ${excluded-dirs}";
 
       # misc
       title = "nix-hs-tools";
@@ -73,7 +74,7 @@
       apps.help = {
         type = "app";
         program = "${pkgs.writeShellScript "help.sh" ''
-          echo -e "${title}: Haskell development tools, by nix\n"
+          echo -e "${title}: Haskell development tools by Nix\n"
           echo -e "Usage: nix run github:tbidne/nix-hs-tools#<tool> -- <args>\n"
           echo -e "${desc}"
           echo ${version}

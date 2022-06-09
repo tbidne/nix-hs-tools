@@ -18,5 +18,6 @@ pkgs.writeShellScript "ormolu.sh" ''
     shift
   done
 
-  ${find-hs-non-build} | xargs ${pkgs.ormolu}/bin/ormolu $cabal ''${args[@]}
+  ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs \
+    ${pkgs.ormolu}/bin/ormolu $cabal ''${args[@]}
 ''

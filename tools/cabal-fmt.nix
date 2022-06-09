@@ -16,5 +16,6 @@ pkgs.writeShellScript "cabal-fmt.sh" ''
     shift
   done
 
-  find $dir -name '*.cabal' | xargs ${pkgs.haskellPackages.cabal-fmt}/bin/cabal-fmt ''${args[@]}
+  ${pkgs.findutils}/bin/find $dir -name '*.cabal' | ${pkgs.findutils}/bin/xargs \
+    ${pkgs.haskellPackages.cabal-fmt}/bin/cabal-fmt ''${args[@]}
 ''
