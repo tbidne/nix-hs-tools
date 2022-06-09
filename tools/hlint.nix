@@ -1,20 +1,37 @@
-{ pkgs }:
+{ pkgs
+, find-hs-non-build
+}:
 
 pkgs.writeShellScript "hlint.sh" ''
   args=()
   dir=.
+  refact=0
   while [ $# -gt 0 ]; do
     if [[ $1 == "--nh-help" ]]; then
-      echo "usage: nix run github:tbidne/nix-hs-tools#hlint -- [--dir PATH] <args>"
+      echo "usage: nix run github:tbidne/nix-hs-tools#hlint -- [--dir] [--refact] <args>"
       exit 0
     elif [[ $1 == "--dir" ]]; then
       dir=$2
       shift 1
+    elif [[ $1 == "--refact" ]]; then
+      refact=1
     else
       args+=($1)
     fi
     shift
   done
 
-  ${pkgs.hlint}/bin/hlint $dir --ignore-glob=dist-newstyle --ignore-glob=stack-work ''${args[@]}
+  if [[ $refact == 0 ]]; then
+    ${pkgs.hlint}/bin/hlint --ignore-glob=dist-newstyle --ignore-glob=stack-work ''${args[@]} $dir
+  else
+    # refactor works on individual files only
+    ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs -I % sh -c "
+      ${pkgs.hlint}/bin/hlint \
+        --ignore-glob=dist-newstyle \
+        --ignore-glob=stack-work \
+        --refactor \
+        --with-refactor ${pkgs.haskell.packages.ghc922.apply-refact_0_10_0_0}/bin/refactor \
+        --refactor-options=-is \
+        ''${args[@]} %"
+  fi
 ''

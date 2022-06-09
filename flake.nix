@@ -55,7 +55,7 @@
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
       fourmolu = import ./tools/fourmolu.nix { inherit pkgs find-hs-non-build; };
       hie = import ./tools/hie.nix { inherit pkgs; };
-      hlint = import ./tools/hlint.nix { inherit pkgs; };
+      hlint = import ./tools/hlint.nix { inherit pkgs find-hs-non-build; };
       haddock = import ./tools/haddock.nix { inherit pkgs; };
       nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit pkgs; };
       ormolu = import ./tools/ormolu.nix { inherit pkgs find-hs-non-build; };

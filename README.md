@@ -152,12 +152,21 @@ nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 
 **Description:** The `hlint` linter. Runs recursively on the current directory, though this can be overridden with `--dir`. Ignores `dist-newstyle` and `stack-work`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- [--dir PATH] <args>`.
+If the `--refact` option is given, runs recursively on all haskell files with the `--refactor` option and refactor flags `-i -s` i.e. in-place and prompts before each change. This behavior can be overridden by explicitly passing `--refactor-options`.
+
+**Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- [--dir PATH] [--refact] <args>`.
 
 **Examples:**
 
 ```
-nix run github:tbidne/nix-hs-tools#hlint -- .
+# recursively checks all files in the current directory
+nix run github:tbidne/nix-hs-tools#hlint
+
+# recursively applies suggestions to all files in the current directory, with a prompt.
+nix run github:tbidne/nix-hs-tools#hlint -- --refact
+
+# same as above but apply automatically, not in-place and no prompt.
+nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 ```
 
 ## Haskell Miscellaneous
