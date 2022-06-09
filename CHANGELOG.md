@@ -1,5 +1,12 @@
 # Revision history for nix-hs-tools
 
+## 0.4 -- 2022-06-14
+
+* Added --refactor option to hlint.
+* Now using cached fourmolo and hlint from nixpkgs.
+* Improve reproducibility via getting find and xargs from nixpkgs.
+* Documentation improvements.
+
 ## 0.3 -- 2022-06-04
 
 * Improved haddock.
