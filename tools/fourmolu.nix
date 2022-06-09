@@ -19,5 +19,5 @@ pkgs.writeShellScript "fourmolu.sh" ''
   done
 
   ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs \
-    ${pkgs.fourmolu}/bin/fourmolu $cabal ''${args[@]}
+    ${pkgs.fourmolu}/bin/fourmolu ''${args[@]}
 ''
