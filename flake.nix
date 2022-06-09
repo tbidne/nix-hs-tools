@@ -9,22 +9,12 @@
     }:
     flake-utils.lib.eachDefaultSystem (system:
     let
-      overrideIndex = haskellPackages': haskellPackages'.override {
-        all-cabal-hashes = builtins.fetchurl {
-          url = "https://github.com/commercialhaskell/all-cabal-hashes/archive/993091a69d0159755a87966c35d1b0fb2db6e01a.tar.gz";
-          sha256 = "0sas431dpk895mg0yz9z13sx9vcg3zjf866xlav0rd2c658a730l";
-        };
-      };
-
       haskell-overlay = final: prev:
-        let hp = final.pkgs.haskell.packages.ghc922; in
+        let hp = final.pkgs.haskell.packages.ghc923; in
         {
-          # want the latest but not in the current nixpkgs, unfortunately
-          fourmolu = final.pkgs.haskell.lib.dontCheck
-            ((overrideIndex hp).callHackage "fourmolu" "0.7.0.1" { });
-          hlint = (overrideIndex hp).callHackage "hlint" "3.4" { };
-
-          # in nixpkgs
+          apply-refact = hp.apply-refact_0_10_0_0;
+          fourmolu = hp.fourmolu_0_7_0_1;
+          hlint = hp.hlint_3_4;
           ormolu = hp.ormolu_0_5_0_0;
 
           # disable all tests
@@ -50,7 +40,7 @@
         nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args> \n\n\
         See github.com/tbidne/nix-hs-tools#readme.
       '';
-      version = "Version: 0.3";
+      version = "Version: 0.4";
 
       # tools
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };

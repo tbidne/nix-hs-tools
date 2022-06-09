@@ -30,7 +30,7 @@ pkgs.writeShellScript "hlint.sh" ''
         --ignore-glob=dist-newstyle \
         --ignore-glob=stack-work \
         --refactor \
-        --with-refactor ${pkgs.haskell.packages.ghc922.apply-refact_0_10_0_0}/bin/refactor \
+        --with-refactor ${pkgs.apply-refact}/bin/refactor \
         --refactor-options=-is \
         ''${args[@]} %"
   fi
