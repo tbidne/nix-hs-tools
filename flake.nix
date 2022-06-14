@@ -56,7 +56,7 @@
         \t  - version\n\
         See github.com/tbidne/nix-hs-tools#readme.
       '';
-      version = "0.4";
+      version = "0.4.0.1";
 
       # tools
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };

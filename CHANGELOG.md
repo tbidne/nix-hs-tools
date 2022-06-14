@@ -1,5 +1,9 @@
 # Revision history for nix-hs-tools
 
+## 0.4.0.1 -- 2022-06-15
+
+* Improved documentation / help.
+
 ## 0.4 -- 2022-06-14
 
 * Added --refactor option to hlint.
