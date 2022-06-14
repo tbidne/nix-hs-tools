@@ -38,9 +38,25 @@
         see a tool's individual usage, pass the '--nh-help' arg e.g. \n\n\t\
         $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help \n\t\
         nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args> \n\n\
+        Tools:\n\
+        \tHaskell Formatters:
+        \t  - cabal-fmt: 0.1.5.1\n\
+        \t  - fourmolu: 0.7.0.1\n\
+        \t  - ourmolu: 0.5.0.0\n\
+        \t  - stylish: 0.14.2.0\n\
+        \tHaskell Linters:
+        \t  - hlint: 3.4\n\
+        \tHaskell Miscellaeous:
+        \t  - haddock\n\
+        \t  - hie: 0.1.2.7\n\
+        \tNix Formatters:
+        \t  - nixpkgs-fmt: 1.2.0\n\
+        \tInformation:
+        \t  - help\n\
+        \t  - version\n\
         See github.com/tbidne/nix-hs-tools#readme.
       '';
-      version = "Version: 0.4";
+      version = "0.4";
 
       # tools
       cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
@@ -67,7 +83,7 @@
           echo -e "${title}: Haskell development tools by Nix\n"
           echo -e "Usage: nix run github:tbidne/nix-hs-tools#<tool> -- <args>\n"
           echo -e "${desc}"
-          echo ${version}
+          echo Version: ${version}
         ''}";
       };
       apps.hie = {
@@ -97,8 +113,7 @@
       apps.version = {
         type = "app";
         program = "${pkgs.writeShellScript "version.sh" ''
-          echo ${title}
-          echo ${version}
+          echo ${title} ${version}
         ''}";
       };
     });

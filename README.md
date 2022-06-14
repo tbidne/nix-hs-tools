@@ -7,7 +7,7 @@
 [![style](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/style/main?label=style&logoColor=white&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/style_ci.yaml)
 [![BSD-3-Clause](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/BSD-3-Clause)
 
-### Haskell development tools by Nix.
+### Haskell development tools by Nix
 
 </div>
 
@@ -18,6 +18,7 @@
 - [Tools](#tools)
   - [Haskell Formatters](#haskell-formatters)
     - [Cabal-Fmt](#cabal-fmt)
+    - [Fourmolu](#fourmolu)
     - [Ormolu](#ormolu)
     - [Stylish](#stylish)
   - [Haskell Linters](#haskell-linters)
@@ -62,7 +63,7 @@ usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
 The version can also be fixed e.g.
 
 ```
-nix run github:tbidne/nix-hs-tools/0.3#<tool> -- <args>
+nix run github:tbidne/nix-hs-tools/0.4#<tool> -- <args>
 ```
 
 # Tools
@@ -72,6 +73,8 @@ nix run github:tbidne/nix-hs-tools/0.3#<tool> -- <args>
 ### Cabal-Fmt
 
 **Source:** https://github.com/phadej/cabal-fmt
+
+**Version:** 0.1.5.1
 
 **Description:** The `cabal-fmt` formatter for `cabal` files. By default, searches the current directory for `*.cabal` files. Otherwise the search directory can be specified with `--dir DIR`.
 
@@ -90,6 +93,8 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 ### Fourmolu
 
 **Source:** https://github.com/fourmolu/fourmolu
+
+**Version:** 0.7.0.1
 
 **Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
@@ -112,6 +117,8 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQual
 
 **Source:** https://github.com/tweag/ormolu
 
+**Version:** 0.5.0.0
+
 **Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>`.
@@ -133,6 +140,8 @@ nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualif
 
 **Source:** https://github.com/haskell/stylish-haskell
 
+**Version:** 0.14.2.0
+
 **Description:** The `stylish-haskell` code formatter for haskell source files. Runs `stylish-haskell` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#stylish -- [--dir PATH] <args>`.
@@ -149,6 +158,8 @@ nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 ### HLint
 
 **Source:** https://github.com/ndmitchell/hlint
+
+**Version:** 3.4
 
 **Description:** The `hlint` linter. Runs recursively on the current directory, though this can be overridden with `--dir`. Ignores `dist-newstyle` and `stack-work`.
 
@@ -196,6 +207,8 @@ nix run github:tbidne/nix-hs-tools#haddock -- --exclude Data.Foo -x Bar --haddoc
 
 **Source:** https://github.com/Avi-D-coder/implicit-hie
 
+**Version:** 0.1.2.7
+
 **Description:** The `gen-hie` tool for generating an `hie` file. Redirects the output to `hie.yaml`.
 
 **Usage:** `nix run github:tbidne/nix-hs-tools#hie`.
@@ -211,6 +224,8 @@ nix run github:tbidne/nix-hs-tools#hie
 ### Nixpkgs-Fmt
 
 **Source:** https://github.com/nix-community/nixpkgs-fmt
+
+**Version:** 1.2.0
 
 **Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
 
