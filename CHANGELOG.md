@@ -1,5 +1,10 @@
 # Revision history for nix-hs-tools
 
+## 0.5 -- 2022-06-16
+
+* Fixed cabal-fmt tool so that it skips build directory.
+* Set all tools to fail on any error.
+
 ## 0.4.0.1 -- 2022-06-15
 
 * Improved documentation / help.
