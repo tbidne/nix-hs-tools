@@ -1,6 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScript "nixpkgs-fmt.sh" ''
+  set -e
   args=()
   dir=.
   while [ $# -gt 0 ]; do

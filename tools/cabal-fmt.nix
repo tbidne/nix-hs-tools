@@ -4,7 +4,9 @@
 
 let
   find-cabal-non-build = "${pkgs.findutils}/bin/find $dir -type f -name \"*.cabal\" ${excluded-dirs}";
-in pkgs.writeShellScript "cabal-fmt.sh" ''
+in
+pkgs.writeShellScript "cabal-fmt.sh" ''
+  set -e
   args=()
   dir=.
   while [ $# -gt 0 ]; do

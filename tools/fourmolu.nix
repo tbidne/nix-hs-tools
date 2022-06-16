@@ -3,6 +3,7 @@
 }:
 
 pkgs.writeShellScript "fourmolu.sh" ''
+  set -e
   args=()
   dir=.
   while [ $# -gt 0 ]; do

@@ -3,6 +3,7 @@
 }:
 
 pkgs.writeShellScript "hlint.sh" ''
+  set -e
   args=()
   dir=.
   refact=0

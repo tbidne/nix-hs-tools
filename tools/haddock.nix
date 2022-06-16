@@ -1,6 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScript "haddock.sh" ''
+  set -e
   args=()
   excluded=()
   threshold=100
@@ -21,10 +22,6 @@ pkgs.writeShellScript "haddock.sh" ''
   done
 
   metrics_string=$(cabal haddock ''${args[@]})
-  if [[ $? -ne 0 ]]; then
-    echo "Build failed!"
-    exit 1
-  fi
 
   readarray -t metrics <<<"$metrics_string"
 
