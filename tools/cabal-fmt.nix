@@ -1,6 +1,10 @@
-{ pkgs }:
+{ excluded-dirs
+, pkgs
+}:
 
-pkgs.writeShellScript "cabal-fmt.sh" ''
+let
+  find-cabal-non-build = "${pkgs.findutils}/bin/find $dir -type f -name \"*.cabal\" ${excluded-dirs}";
+in pkgs.writeShellScript "cabal-fmt.sh" ''
   args=()
   dir=.
   while [ $# -gt 0 ]; do
@@ -16,6 +20,6 @@ pkgs.writeShellScript "cabal-fmt.sh" ''
     shift
   done
 
-  ${pkgs.findutils}/bin/find $dir -name '*.cabal' | ${pkgs.findutils}/bin/xargs \
+  ${find-cabal-non-build} | ${pkgs.findutils}/bin/xargs \
     ${pkgs.haskellPackages.cabal-fmt}/bin/cabal-fmt ''${args[@]}
 ''

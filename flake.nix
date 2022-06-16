@@ -59,7 +59,7 @@
       version = "0.4.0.1";
 
       # tools
-      cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs; };
+      cabal-fmt = import ./tools/cabal-fmt.nix { inherit pkgs excluded-dirs; };
       fourmolu = import ./tools/fourmolu.nix { inherit pkgs find-hs-non-build; };
       hie = import ./tools/hie.nix { inherit pkgs; };
       hlint = import ./tools/hlint.nix { inherit pkgs find-hs-non-build; };
