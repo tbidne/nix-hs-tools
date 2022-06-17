@@ -7,12 +7,12 @@ pkgs.writeShellScript "haddock.sh" ''
   threshold=100
   while [ $# -gt 0 ]; do
     if [[ $1 == "--nh-help" ]]; then
-      echo "usage: nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>"
+      echo "usage: nix run github:tbidne/nix-hs-tools#haddock -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] <args>"
       exit 0
     elif [[ $1 == "--exclude" || $1 == "-x" ]]; then
       excluded+=($2)
       shift
-    elif [[ $1 == "--threshold" ]]; then
+    elif [[ $1 == "--threshold" || $1 == "-t" ]]; then
       threshold=$2
       shift
     else

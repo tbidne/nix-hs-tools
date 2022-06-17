@@ -1,5 +1,9 @@
 # Revision history for nix-hs-tools
 
+## 0.5.1 -- 2022-06-17
+
+* Added -t alias for haddock --threshold
+
 ## 0.5 -- 2022-06-16
 
 * Fixed cabal-fmt tool so that it skips build directory.

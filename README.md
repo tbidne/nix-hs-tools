@@ -188,7 +188,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 
 **Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock -- [--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
 
 **Examples:**
 
