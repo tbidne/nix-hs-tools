@@ -1,5 +1,12 @@
 # Revision history for nix-hs-tools
 
+## 0.6 -- 2022-06-21
+
+* Renamed haddock tool to haddock-cov to differentiate between it and the real
+  haddock. This makes the version arg less confusion.
+* Made versions on help page more robust.
+* Fixed nix-hs-tools version.
+
 ## 0.5.1 -- 2022-06-17
 
 * Added -t alias for haddock --threshold

@@ -24,7 +24,7 @@
   - [Haskell Linters](#haskell-linters)
     - [HLint](#hlint)
   - [Haskell Miscellaneous](#haskell-miscellaneous)
-    - [Haddock](#haddock)
+    - [Haddock Coverage](#haddock-coverage)
     - [HIE](#hie)
   - [Nix Formatters](#nix-formatters)
     - [Nixpkgs-Fmt](#nixpkgs-fmt)
@@ -182,25 +182,27 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 
 ## Haskell Miscellaneous
 
-### Haddock
+### Haddock Coverage
 
 **Source:** https://haskell-haddock.readthedocs.io/en/latest/
 
+**Version:** 0.1
+
 **Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] <args>`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock-cov -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] [-v|--version]`.
 
 **Examples:**
 
 ```
 # checks that all modules in the default package have 100% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock
+nix run github:tbidne/nix-hs-tools#haddock-cov
 
 # checks that all modules in the default package have 70% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock -- --threshold 70
+nix run github:tbidne/nix-hs-tools#haddock-cov -- --threshold 70
 
 # checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
-nix run github:tbidne/nix-hs-tools#haddock -- --exclude Data.Foo -x Bar --haddock-all
+nix run github:tbidne/nix-hs-tools#haddock-cov -- --exclude Data.Foo -x Bar --haddock-all
 ```
 
 ### HIE

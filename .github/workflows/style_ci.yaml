@@ -29,4 +29,4 @@ jobs:
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
 
       - name: nixpkgs-fmt
-        run: nix run github:tbidne/nix-hs-tools#nixpkgs-fmt -- --check
+        run: nix run .#nixpkgs-fmt -- --check

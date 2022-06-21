@@ -40,8 +40,8 @@ jobs:
       - name: Test hlint
         run: nix run .#hlint -- --help
 
-      - name: Test haddock
-        run: nix run .#haddock -- --nh-help
+      - name: Test haddock coverage
+        run: nix run .#haddock-cov -- --nh-help
 
       # for some reason, 'nix run .#nixpkgs-fmt -- --help' dies on ci
       - name: Test nixpkgs-fmt
@@ -52,3 +52,9 @@ jobs:
 
       - name: Test stylish
         run: nix run .#stylish -- --help
+
+      - name: Test help
+        run: nix run .#help
+
+      - name: Test version
+        run: nix run .#version

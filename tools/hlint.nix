@@ -1,5 +1,5 @@
-{ pkgs
-, find-hs-non-build
+{ find-hs-non-build
+, pkgs
 }:
 
 pkgs.writeShellScript "hlint.sh" ''
