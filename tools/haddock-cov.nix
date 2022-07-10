@@ -7,6 +7,7 @@ in
   inherit version;
   script = pkgs.writeShellScript "haddock-cov.sh" ''
     set -e
+    echo "HADDOCK COV START: $(date)"
     args=()
     excluded=()
     threshold=100
@@ -29,7 +30,10 @@ in
       shift
     done
 
+    echo "CABAL HADDOCK START: $(date)"
+    cabal update
     metrics_string=$(cabal haddock ''${args[@]})
+    echo "CABAL HADDOCK FINISH: $(date)"
 
     readarray -t metrics <<<"$metrics_string"
 
