@@ -1,50 +1,82 @@
 # Revision history for nix-hs-tools
 
-## 0.6 -- 2022-06-21
+All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to the
+[Haskell Package Versioning Policy](https://pvp.haskell.org/).
+
+## [Unreleased]
+
+
+## [0.6] -- 2022-06-21
+### Changed
 * Renamed haddock tool to haddock-cov to differentiate between it and the real
   haddock. This makes the version arg less confusion.
+
+### Fixed
 * Made versions on help page more robust.
 * Fixed nix-hs-tools version.
 
-## 0.5.1 -- 2022-06-17
-
+## [0.5.1] -- 2022-06-17
+### Added
 * Added -t alias for haddock --threshold
 
-## 0.5 -- 2022-06-16
-
-* Fixed cabal-fmt tool so that it skips build directory.
+## [0.5] -- 2022-06-16
+### Changed
 * Set all tools to fail on any error.
 
-## 0.4.0.1 -- 2022-06-15
+### Fixed
+* Fixed cabal-fmt tool so that it skips build directory.
 
+## [0.4.0.1] -- 2022-06-15
+### Fixed
 * Improved documentation / help.
 
-## 0.4 -- 2022-06-14
-
+## [0.4] -- 2022-06-14
+### Added
 * Added --refactor option to hlint.
+
+### Fixed
 * Now using cached fourmolo and hlint from nixpkgs.
 * Improve reproducibility via getting find and xargs from nixpkgs.
 * Documentation improvements.
 
-## 0.3 -- 2022-06-04
-
-* Improved haddock.
-  * Fixed bug where cabal build failure reported haddock success.
-  * We now have a single tool that requires cabal and ghc to be user-provided.
-* Add `help` and `version` "tools".
-* Add `--nh-help` arg to each tool showing usage.
+## [0.3] -- 2022-06-04
+### Changed
+* Haddock is now a single tool that requires cabal and ghc to be user-provided.
 * Bump hlint to 3.4.
 * Bump ormolu to 0.5.0.0.
 * Bump fourmolu to 0.7.0.1.
 
-## 0.2 -- 2022-05-14
+### Added
+* Add `help` and `version` "tools".
+* Add `--nh-help` arg to each tool showing usage.
 
-* Added fourmolu
-* Improved ignore haskell build paths
+### Fixed
+* Fixed haddock bug where cabal build failure reported success.
+
+## [0.2] -- 2022-05-14
+### Changed
 * GHC 9.2.1 -> GHC 9.2.2
 * Simplify haddocks tool (no minor version)
 
-## 0.1.0.0 -- 2022-02-06
+### Added
+* Added fourmolu
+
+### Fixed
+* Improved ignore haskell build paths
+
+## [0.1.0.0] -- 2022-02-06
 
 * First version. Released on an unsuspecting world.
+
+[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.6...main
+[0.6]: https://github.com/tbidne/nix-hs-tools/compare/0.5.1..0.6
+[0.5.1]: https://github.com/tbidne/nix-hs-tools/compare/0.5..0.5.1
+[0.5]: https://github.com/tbidne/nix-hs-tools/compare/0.4.0.1..0.5
+[0.4.0.1]: https://github.com/tbidne/nix-hs-tools/compare/0.4..0.4.0.1
+[0.4]: https://github.com/tbidne/nix-hs-tools/compare/0.3..0.4
+[0.3]: https://github.com/tbidne/nix-hs-tools/compare/0.2..0.3
+[0.2]: https://github.com/tbidne/nix-hs-tools/compare/0.1..0.2
+[0.1.0.0]: https://github.com/tbidne/nix-hs-tools/releases/tag/0.1.0.0
