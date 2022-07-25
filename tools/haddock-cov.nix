@@ -8,17 +8,24 @@ in
   script = pkgs.writeShellScript "haddock-cov.sh" ''
     set -e
     args=()
+    declare -A module_threshold
     excluded=()
-    threshold=100
+    global_threshold=100
     while [ $# -gt 0 ]; do
       if [[ $1 == "--nh-help" ]]; then
-        echo "usage: nix run github:tbidne/nix-hs-tools#haddock-cov -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] [-v|--version]"
+        echo "usage: haddock-cov [-t|--threshold PERCENTAGE] [-x|--exclude MODULE]"
+        echo "                   [-m|--module-threshold MODULE PERCENTAGE]"
+        echo "                   [-v|--version]"
         exit 0
       elif [[ $1 == "--exclude" || $1 == "-x" ]]; then
         excluded+=($2)
         shift
       elif [[ $1 == "--threshold" || $1 == "-t" ]]; then
-        threshold=$2
+        global_threshold=$2
+        shift
+      elif [[ $1 == "--module-threshold" || $1 == "-m" ]]; then
+        module_threshold[$2]=$3
+        shift
         shift
       elif [[ $1 == "--version" || $1 == "-v" ]]; then
         echo haddock-cov: ${version}
@@ -40,6 +47,7 @@ in
 
     any_failed=0
     ran_test=0
+    threshold=$global_threshold
     for m in "''${metrics[@]}"; do
       if [[ $m =~ $regex ]]; then
         val="''${BASH_REMATCH[1]}"
@@ -51,10 +59,19 @@ in
           continue
         fi
 
+        # set threshold if manually specified
+        module_t=''${module_threshold[$fn]}
+        if [[ -n $module_t ]]; then
+          threshold=$module_t
+        fi
+
         if [[ $val -lt $threshold ]]; then
           echo "Haddock missing for $fn: $val"
           any_failed=1
         fi
+
+        # reset
+        threshold=$global_threshold
       fi
 
       ran_test=1

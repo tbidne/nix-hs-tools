@@ -7,7 +7,8 @@ and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
 ## [Unreleased]
-
+### Added
+* Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
 
 ## [0.6] -- 2022-06-21
 ### Changed

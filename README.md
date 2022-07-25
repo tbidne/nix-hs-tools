@@ -190,7 +190,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 
 **Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock-cov -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] [-v|--version]`.
+**Usage:** `nix run github:tbidne/nix-hs-tools#haddock-cov -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] [-m|--module-threshold MODULE PERCENTAGE] [-v|--version]`.
 
 **Examples:**
 
@@ -203,6 +203,9 @@ nix run github:tbidne/nix-hs-tools#haddock-cov -- --threshold 70
 
 # checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
 nix run github:tbidne/nix-hs-tools#haddock-cov -- --exclude Data.Foo -x Bar --haddock-all
+
+# drops coverage for Data.Foo and Bar to 70 and 65, respectively.
+nix run github:tbidne/nix-hs-tools#haddock-cov -- --module-threshold Data.Foo 70 -m Bar 65
 ```
 
 ### HIE
