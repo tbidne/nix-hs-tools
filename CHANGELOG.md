@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
-## [Unreleased]
+## [0.6.1]
 ### Added
 * Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
 
@@ -75,7 +75,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
-[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.6...main
+[0.6.1]: https://github.com/tbidne/nix-hs-tools/compare/0.6...0.6.1
 [0.6]: https://github.com/tbidne/nix-hs-tools/compare/0.5.1..0.6
 [0.5.1]: https://github.com/tbidne/nix-hs-tools/compare/0.5..0.5.1
 [0.5]: https://github.com/tbidne/nix-hs-tools/compare/0.4.0.1..0.5
