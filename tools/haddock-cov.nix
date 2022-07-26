@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  version = "0.1";
+  version = "0.1.1";
 in
 {
   inherit version;
@@ -25,8 +25,7 @@ in
         shift
       elif [[ $1 == "--module-threshold" || $1 == "-m" ]]; then
         module_threshold[$2]=$3
-        shift
-        shift
+        shift 2
       elif [[ $1 == "--version" || $1 == "-v" ]]; then
         echo haddock-cov: ${version}
         exit 0
@@ -43,7 +42,7 @@ in
     # This is extremely gross (thanks bash). Generally, lines look like:
     #   100% ( 2 / 2) in 'Module.Name'
     # and we are trying to capture the first number (percentage) and module name.
-    regex="([0-9]{1,3})%[[:space:]]+\([[:space:]]*[0-9]+[[:space:]]*\/[[:space:]]*[0-9]+[[:space:]]*\)[[:space:]]+in[[:space:]]+'([a-zA-Z\.]+)'"
+    regex="([0-9]{1,3})%[[:space:]]+\([[:space:]]*[0-9]+[[:space:]]*\/[[:space:]]*[0-9]+[[:space:]]*\)[[:space:]]+in[[:space:]]+'([a-zA-Z0-9\.]+)'"
 
     any_failed=0
     ran_test=0

@@ -11,6 +11,7 @@ and this project adheres to the
 * Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
 
 ### Fixed
+* `haddock-cov` now parses module names with numbers.
 * Improved usage descriptions.
 
 ## [0.6] -- 2022-06-21

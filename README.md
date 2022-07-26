@@ -186,7 +186,7 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 
 **Source:** https://haskell-haddock.readthedocs.io/en/latest/
 
-**Version:** 0.1
+**Version:** 0.1.1
 
 **Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
