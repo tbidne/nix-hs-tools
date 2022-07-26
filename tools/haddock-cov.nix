@@ -15,7 +15,7 @@ in
       if [[ $1 == "--nh-help" ]]; then
         echo "usage: haddock-cov [-t|--threshold PERCENTAGE] [-x|--exclude MODULE]"
         echo "                   [-m|--module-threshold MODULE PERCENTAGE]"
-        echo "                   [-v|--version]"
+        echo "                   [-v|--version] <args>"
         exit 0
       elif [[ $1 == "--exclude" || $1 == "-x" ]]; then
         excluded+=($2)

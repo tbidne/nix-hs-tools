@@ -9,7 +9,7 @@ pkgs.writeShellScript "hlint.sh" ''
   refact=0
   while [ $# -gt 0 ]; do
     if [[ $1 == "--nh-help" ]]; then
-      echo "usage: nix run github:tbidne/nix-hs-tools#hlint -- [--dir] [--refact] <args>"
+      echo "usage: hlint [--dir] [--refact] <args>"
       exit 0
     elif [[ $1 == "--dir" ]]; then
       dir=$2

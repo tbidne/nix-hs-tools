@@ -10,6 +10,9 @@ and this project adheres to the
 ### Added
 * Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
 
+### Fixed
+* Improved usage descriptions.
+
 ## [0.6] -- 2022-06-21
 ### Changed
 * Renamed haddock tool to haddock-cov to differentiate between it and the real

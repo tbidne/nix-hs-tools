@@ -6,7 +6,7 @@ pkgs.writeShellScript "nixpkgs-fmt.sh" ''
   dir=.
   while [ $# -gt 0 ]; do
     if [[ $1 == "--nh-help" ]]; then
-      echo "usage: nix run github:tbidne/nix-hs-tools#nixpkgs-fmt -- [--dir PATH] <args>"
+      echo "usage: nixpkgs-fmt [--dir PATH] <args>"
       exit 0
     elif [[ $1 == "--dir" ]]; then
       dir=$2

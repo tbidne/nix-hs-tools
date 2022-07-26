@@ -78,7 +78,7 @@ nix run github:tbidne/nix-hs-tools/0.4.0.1#<tool> -- <args>
 
 **Description:** The `cabal-fmt` formatter for `cabal` files. By default, searches the current directory for `*.cabal` files. Otherwise the search directory can be specified with `--dir DIR`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#cabal-fmt -- [--dir PATH] <args>`.
+**Usage:** `cabal-fmt [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -98,7 +98,7 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 
 **Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#fourmolu -- [--dir PATH] <args>`.
+**Usage:** `fourmolu [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -121,7 +121,7 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQual
 
 **Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>`.
+**Usage:** `ormolu [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -144,7 +144,7 @@ nix run github:tbidne/nix-hs-tools#ormolu -- --no-cabal --ghc-opt -XImportQualif
 
 **Description:** The `stylish-haskell` code formatter for haskell source files. Runs `stylish-haskell` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#stylish -- [--dir PATH] <args>`.
+**Usage:** `stylish [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -165,7 +165,7 @@ nix run github:tbidne/nix-hs-tools#stylish -- --inplace
 
 If the `--refact` option is given, runs recursively on all haskell files with the `--refactor` option and refactor flags `-i -s` i.e. in-place and prompts before each change. This behavior can be overridden by explicitly passing `--refactor-options`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#hlint -- [--dir PATH] [--refact] <args>`.
+**Usage:** `hlint [--dir PATH] [--refact] <args>`.
 
 **Examples:**
 
@@ -190,7 +190,13 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 
 **Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#haddock-cov -- [-t|--threshold PERCENTAGE] [-x|--exclude MODULE] [-m|--module-threshold MODULE PERCENTAGE] [-v|--version]`.
+**Usage:**
+
+```
+haddock-cov [-t|--threshold PERCENTAGE] [-x|--exclude MODULE]
+            [-m|--module-threshold MODULE PERCENTAGE]
+            [-v|--version] <args>
+```
 
 **Examples:**
 
@@ -216,7 +222,7 @@ nix run github:tbidne/nix-hs-tools#haddock-cov -- --module-threshold Data.Foo 70
 
 **Description:** The `gen-hie` tool for generating an `hie` file. Redirects the output to `hie.yaml`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#hie`.
+**Usage:** `hie`.
 
 **Examples:**
 
@@ -234,7 +240,7 @@ nix run github:tbidne/nix-hs-tools#hie
 
 **Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#nixpkgs-fmt -- [--dir PATH] <args>`.
+**Usage:** `nixpkgs-fmt [--dir PATH] <args>`.
 
 **Examples:**
 
@@ -248,10 +254,10 @@ nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
 
 **Description:** Returns a man page.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#help`.
+**Usage:** `help`.
 
 ## Version
 
 **Description:** Returns the version.
 
-**Usage:** `nix run github:tbidne/nix-hs-tools#version`.
+**Usage:** `version`.

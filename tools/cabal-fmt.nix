@@ -11,7 +11,7 @@ pkgs.writeShellScript "cabal-fmt.sh" ''
   dir=.
   while [ $# -gt 0 ]; do
     if [[ $1 == "--nh-help" ]]; then
-      echo "usage: nix run github:tbidne/nix-hs-tools#cabal-fmt -- [--dir PATH] <args>"
+      echo "usage: cabal-fmt [--dir PATH] <args>"
       exit 0
     elif [[ $1 == "--dir" ]]; then
       dir=$2
