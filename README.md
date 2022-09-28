@@ -3,6 +3,7 @@
 # nix-hs-tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/tag/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
+![haskell](https://img.shields.io/static/v1?label=&message=9.2&logo=haskell&logoColor=655889&labelColor=2f353e&color=655889)
 [![nix](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/nix/main?label=nix&logo=nixos&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/nix_ci.yaml)
 [![style](https://img.shields.io/github/workflow/status/tbidne/nix-hs-tools/style/main?label=style&logoColor=white&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/style_ci.yaml)
 [![BSD-3-Clause](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/BSD-3-Clause)
@@ -74,7 +75,7 @@ nix run github:tbidne/nix-hs-tools/0.4.0.1#<tool> -- <args>
 
 **Source:** https://github.com/phadej/cabal-fmt
 
-**Version:** 0.1.5.1
+**Version:** 0.1.6
 
 **Description:** The `cabal-fmt` formatter for `cabal` files. By default, searches the current directory for `*.cabal` files. Otherwise the search directory can be specified with `--dir DIR`.
 
@@ -94,7 +95,7 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 
 **Source:** https://github.com/fourmolu/fourmolu
 
-**Version:** 0.7.0.1
+**Version:** 0.8.2.0
 
 **Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
@@ -117,7 +118,7 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQual
 
 **Source:** https://github.com/tweag/ormolu
 
-**Version:** 0.5.0.0
+**Version:** 0.5.0.1
 
 **Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
@@ -239,7 +240,7 @@ nix run github:tbidne/nix-hs-tools#hie
 
 **Source:** https://github.com/nix-community/nixpkgs-fmt
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 
 **Description:** The `nixpkgs-fmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
 

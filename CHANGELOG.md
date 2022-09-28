@@ -6,12 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
-## [0.7] -- ???
+## [0.7] -- 2022-10-19
 ### Changed
 * `hlint` with `--refact` now applies refactor hints automatically without
   prompts.
+* Updated tools:
+  * `cabal-fmt`: 0.1.5.1 -> 0.1.6
+  * `fourmolu`: 0.7.0.1 -> 0.8.2.0
+  * `nixpkgs-fmt`: 1.2.0 -> 1.3.0
+  * `ormolu`: 0.5.0.0 -> 0.5.0.1
 
->>>>>>> 2e3a8cb (Hlint w/ refact no has no prompt by default)
 ## [0.6.1] -- 2022-06-26
 ### Added
 * Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
