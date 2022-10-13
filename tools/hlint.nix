@@ -32,7 +32,7 @@ pkgs.writeShellScript "hlint.sh" ''
         --ignore-glob=stack-work \
         --refactor \
         --with-refactor ${pkgs.apply-refact}/bin/refactor \
-        --refactor-options=-is \
+        --refactor-options=-i \
         ''${args[@]} %"
   fi
 ''

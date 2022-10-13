@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.7] -- ???
+### Changed
+* `hlint` with `--refact` now applies refactor hints automatically without
+  prompts.
+
+>>>>>>> 2e3a8cb (Hlint w/ refact no has no prompt by default)
 ## [0.6.1] -- 2022-06-26
 ### Added
 * Added `--module-threshold` arg to `haddock-cov` to set coverage per module.
@@ -76,6 +82,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[0.7]: https://github.com/tbidne/nix-hs-tools/compare/0.6.1...0.7
 [0.6.1]: https://github.com/tbidne/nix-hs-tools/compare/0.6...0.6.1
 [0.6]: https://github.com/tbidne/nix-hs-tools/compare/0.5.1..0.6
 [0.5.1]: https://github.com/tbidne/nix-hs-tools/compare/0.5..0.5.1
