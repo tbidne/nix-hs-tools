@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [Unreleased]
+### Changed
+* Updated tools:
+  * `hlint: 3.4 -> 3.5`
+
 ## [0.7] -- 2022-10-19
 ### Changed
 * `hlint` with `--refact` now applies refactor hints automatically without
@@ -86,6 +91,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.7...ghc-9.4
 [0.7]: https://github.com/tbidne/nix-hs-tools/compare/0.6.1...0.7
 [0.6.1]: https://github.com/tbidne/nix-hs-tools/compare/0.6...0.6.1
 [0.6]: https://github.com/tbidne/nix-hs-tools/compare/0.5.1..0.6
