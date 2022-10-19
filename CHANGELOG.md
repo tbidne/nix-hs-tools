@@ -11,10 +11,10 @@ and this project adheres to the
 * `hlint` with `--refact` now applies refactor hints automatically without
   prompts.
 * Updated tools:
-  * `cabal-fmt`: 0.1.5.1 -> 0.1.6
-  * `fourmolu`: 0.7.0.1 -> 0.8.2.0
-  * `nixpkgs-fmt`: 1.2.0 -> 1.3.0
-  * `ormolu`: 0.5.0.0 -> 0.5.0.1
+  * `cabal-fmt: 0.1.5.1 -> 0.1.6`
+  * `fourmolu: 0.7.0.1 -> 0.8.2.0`
+  * `nixpkgs-fmt: 1.2.0 -> 1.3.0`
+  * `ormolu: 0.5.0.0 -> 0.5.0.1`
 
 ## [0.6.1] -- 2022-06-26
 ### Added
