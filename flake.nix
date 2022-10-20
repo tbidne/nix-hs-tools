@@ -68,26 +68,36 @@
       # misc
       title = "nix-hs-tools";
       desc = ''
-        nix-hs-tools uses nix to provide tools for haskell development. To \
-        see a tool's individual usage, pass the '--nh-help' arg e.g. \n\n\t\
-        $ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help \n\t\
-        nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args> \n\n\
-        Tools:\n\
+        Nix-hs-tools uses nix to provide tools for haskell development.
+        In general, we take some 3rd party tool (e.g. ormolu) and provide it with nix,
+        along with some extra functionality "on top" for convenience.\n
+        To see a tool's individual usage, pass the '--nh-help' arg e.g.
+
+        \t$ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help
+        \tnix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
+
+        Note that the tools themselves generally have their own builtin-help pages
+        with more detail:
+
+        \t$ nix run github:tbidne/nix-hs-tools#ormolu -- --help
+        \tUsage: ormolu ...
+
+        Tools:
         \tHaskell Formatters:
-        \t  - cabal-fmt:   ${pkgs.cabal-fmt.version}\n\
-        \t  - fourmolu:    ${pkgs.fourmolu.version}\n\
-        \t  - ormolu:      ${pkgs.ormolu.version}\n\
-        \t  - stylish:     ${pkgs.stylish-haskell.version}\n\
+        \t  - cabal-fmt:   ${pkgs.cabal-fmt.version}
+        \t  - fourmolu:    ${pkgs.fourmolu.version}
+        \t  - ormolu:      ${pkgs.ormolu.version}
+        \t  - stylish:     ${pkgs.stylish-haskell.version}
         \tHaskell Linters:
-        \t  - hlint:       ${pkgs.hlint.version}\n\
-        \tHaskell Miscellaeous:
-        \t  - haddock-cov: ${haddock-cov.version}\n\
-        \t  - hie:         ${pkgs.implicit-hie.version}\n\
+        \t  - hlint:       ${pkgs.hlint.version}
+        \tHaskell Miscellaneous:
+        \t  - haddock-cov: ${haddock-cov.version}
+        \t  - hie:         ${pkgs.implicit-hie.version}
         \tNix Formatters:
-        \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}\n\
+        \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
         \tInformation:
-        \t  - help\n\
-        \t  - version\n\
+        \t  - help
+        \t  - version
         See github.com/tbidne/nix-hs-tools#readme.
       '';
       version = "0.7";
