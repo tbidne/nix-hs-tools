@@ -9,7 +9,10 @@ and this project adheres to the
 ## [Unreleased]
 ### Changed
 * Updated tools:
+  * `fourmolu: 0.8.2.0 -> ???`
   * `hlint: 3.4 -> 3.5`
+  * `ormolu: 0.5.0.1 -> 0.5.2.0`
+  * `stylish: 0.14.2.0 -> 0.14.3.0`
 
 ## [0.7] -- 2022-10-19
 ### Changed

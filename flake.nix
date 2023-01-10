@@ -11,15 +11,15 @@
     let
       haskell-overlay = final: prev:
         let
-          hp = final.pkgs.haskell.packages.ghc924;
-          hp942 = final.pkgs.haskell.packages.ghc942;
+          hp = final.pkgs.haskell.packages.ghc944;
         in
         {
           # overrides
-          apply-refact = hp.apply-refact_0_10_0_0;
+          apply-refact = hp.apply-refact_0_11_0_0;
+          # TODO: Update
           fourmolu = hp.fourmolu_0_8_2_0;
-          ormolu = hp.ormolu_0_5_0_1;
-          hlint = hp942.hlint_3_5;
+          ormolu = hp.ormolu_0_5_2_0;
+          hlint = hp.hlint_3_5;
 
           # adding to pkgs so we can easily access versions.
           cabal-fmt = hp.cabal-fmt;
