@@ -95,7 +95,7 @@ nix run github:tbidne/nix-hs-tools#cabal-fmt -- --dir ../foo --check
 
 **Source:** https://github.com/fourmolu/fourmolu
 
-**Version:** 0.8.2.0
+**Version:** 0.10.1.0
 
 **Description:** The `fourmolu` code formatter for haskell source files. Runs `fourmolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 
@@ -118,7 +118,7 @@ nix run github:tbidne/nix-hs-tools#fourmolu -- --no-cabal --ghc-opt -XImportQual
 
 **Source:** https://github.com/tweag/ormolu
 
-**Version:** 0.5.2.0
+**Version:** 0.5.3.0
 
 **Description:** The `ormolu` code formatter for haskell source files. Runs `ormolu` recursively on all `hs` files in the specified directory, ignoring `dist-newstyle` and `.stack-work`. By default runs on the current directory, though it can be specified with `--dir`.
 

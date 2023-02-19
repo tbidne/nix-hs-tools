@@ -17,8 +17,8 @@
           # overrides
           apply-refact = hp.apply-refact_0_11_0_0;
           # TODO: Update
-          fourmolu = hp.fourmolu_0_8_2_0;
-          ormolu = hp.ormolu_0_5_2_0;
+          fourmolu = hp.fourmolu;
+          ormolu = hp.ormolu_0_5_3_0;
           hlint = hp.hlint_3_5;
 
           # adding to pkgs so we can easily access versions.
