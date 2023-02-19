@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
-## [Unreleased]
+## [0.8] -- 2023-02-20
 ### Changed
 * Updated tools:
   * `fourmolu: 0.8.2.0 -> 0.10.1.0`
@@ -94,7 +94,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
-[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.7...ghc-9.4
+[0.8]: https://github.com/tbidne/nix-hs-tools/compare/0.7...0.8
 [0.7]: https://github.com/tbidne/nix-hs-tools/compare/0.6.1...0.7
 [0.6.1]: https://github.com/tbidne/nix-hs-tools/compare/0.6...0.6.1
 [0.6]: https://github.com/tbidne/nix-hs-tools/compare/0.5.1..0.6
