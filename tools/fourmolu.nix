@@ -1,24 +1,30 @@
-{ pkgs
-, find-hs-non-build
+{ compiler
+, nix-hs-utils
+, pkgs
 }:
 
-pkgs.writeShellScript "fourmolu.sh" ''
-  set -e
-  args=()
-  dir=.
-  while [ $# -gt 0 ]; do
-    if [[ $1 == "--nh-help" ]]; then
-      echo "usage: fourmolu [--dir PATH] <args>"
-      exit 0
-    elif [[ $1 == "--dir" ]]; then
-      dir=$2
+nix-hs-utils.mkShellApp {
+  inherit pkgs;
+  name = "fourmolu";
+  text = ''
+    set -e
+    args=()
+    dir=.
+    while [ $# -gt 0 ]; do
+      if [[ $1 == "--nh-help" ]]; then
+        echo "usage: fourmolu [--dir PATH] <args>"
+        exit 0
+      elif [[ $1 == "--dir" ]]; then
+        dir=$2
+        shift
+      else
+        args+=("$1")
+      fi
       shift
-    else
-      args+=($1)
-    fi
-    shift
-  done
+    done
 
-  ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs \
-    ${pkgs.fourmolu}/bin/fourmolu ''${args[@]}
-''
+    # shellcheck disable=SC2046
+    ${compiler.fourmolu}/bin/fourmolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+  '';
+  runtimeInputs = [ compiler.fourmolu pkgs.fd ];
+}

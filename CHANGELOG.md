@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.9] -- 2023-09-16
+### Changed
+* Updated tools:
+  * `cabal-fmt: 0.1.6 -> 0.1.7`
+  * `fourmolu: 0.10.1.0 -> 0.13.1.0`
+  * `hlint: 3.5 -> 3.6.1`
+  * `implcit-hie: 0.1.2.7 -> 0.1.4.0`
+  * `ormolu: 0.5.3.0 -> 0.7.1.0`
+  * `stylish: 0.14.3.0 -> 0.14.5.0`
+
 ## [0.8] -- 2023-02-20
 ### Changed
 * Updated tools:
@@ -94,6 +104,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[0.9]: https://github.com/tbidne/nix-hs-tools/compare/0.8...0.9
 [0.8]: https://github.com/tbidne/nix-hs-tools/compare/0.7...0.8
 [0.7]: https://github.com/tbidne/nix-hs-tools/compare/0.6.1...0.7
 [0.6.1]: https://github.com/tbidne/nix-hs-tools/compare/0.6...0.6.1

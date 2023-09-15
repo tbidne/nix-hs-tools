@@ -1,24 +1,30 @@
-{ pkgs
-, find-hs-non-build
+{ compiler
+, nix-hs-utils
+, pkgs
 }:
 
-pkgs.writeShellScript "ormolu.sh" ''
-  set -e
-  args=()
-  dir=.
-  while [ $# -gt 0 ]; do
-    if [[ $1 == "--nh-help" ]]; then
-      echo "usage: ormolu [--dir PATH] <args>"
-      exit 0
-    elif [[ $1 == "--dir" ]]; then
-      dir=$2
+nix-hs-utils.mkShellApp {
+  inherit pkgs;
+  name = "ormolu";
+  text = ''
+    set -e
+    args=()
+    dir=.
+    while [ $# -gt 0 ]; do
+      if [[ $1 == "--nh-help" ]]; then
+        echo "usage: ormolu [--dir PATH] <args>"
+        exit 0
+      elif [[ $1 == "--dir" ]]; then
+        dir=$2
+        shift
+      else
+        args+=("$1")
+      fi
       shift
-    else
-      args+=($1)
-    fi
-    shift
-  done
+    done
 
-  ${find-hs-non-build} | ${pkgs.findutils}/bin/xargs \
-    ${pkgs.ormolu}/bin/ormolu ''${args[@]}
-''
+    # shellcheck disable=SC2046
+    ${compiler.ormolu}/bin/ormolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+  '';
+  runtimeInputs = [ compiler.ormolu pkgs.fd ];
+}
