@@ -7,6 +7,8 @@ and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
 ## [0.9] -- 2023-09-16
+### Remove
+* Removed `haddock-cov`
 ### Changed
 * Updated tools:
   * `cabal-fmt: 0.1.6 -> 0.1.7`

@@ -26,8 +26,6 @@ jobs:
             cmd: "nix run .#fourmolu -- --help"
           - name: "hlint"
             cmd: "nix run .#hlint -- --help"
-          - name: "haddock coverage"
-            cmd: "nix run .#haddock-cov -- --nh-help"
           - name: "nixpkgs-fmt"
             cmd: "nix run .#nixpkgs-fmt"
           - name: "ormolu"

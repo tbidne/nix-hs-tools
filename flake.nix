@@ -29,7 +29,7 @@
           desc = ''
             Nix-hs-tools uses nix to provide tools for haskell development.
             In general, we take some 3rd party tool (e.g. ormolu) and provide it with nix,
-            along with some extra functionality "on top" for convenience.\n
+            along with some extra functionality 'on top' for convenience.\n
             To see a tool's individual usage, pass the '--nh-help' arg e.g.
 
             \t$ nix run github:tbidne/nix-hs-tools#ormolu -- --nh-help
@@ -50,7 +50,6 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
-            \t  - haddock-cov: ${haddock-cov.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
@@ -60,8 +59,6 @@
             See github.com/tbidne/nix-hs-tools#readme.
           '';
           version = "0.9";
-
-          haddock-cov = import ./tools/haddock-cov.nix { inherit nix-hs-utils pkgs; };
         in
         {
           apps = {
@@ -82,7 +79,6 @@
 
             hie = import ./tools/hie.nix compilerPkgs;
             hlint = import ./tools/hlint.nix compilerPkgs;
-            haddock-cov = haddock-cov.app;
             nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
             ormolu = import ./tools/ormolu.nix compilerPkgs;
             stylish = import ./tools/stylish.nix compilerPkgs;

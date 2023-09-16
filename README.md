@@ -24,7 +24,6 @@
   - [Haskell Linters](#haskell-linters)
     - [HLint](#hlint)
   - [Haskell Miscellaneous](#haskell-miscellaneous)
-    - [Haddock Coverage](#haddock-coverage)
     - [HIE](#hie)
   - [Nix Formatters](#nix-formatters)
     - [Nixpkgs-Fmt](#nixpkgs-fmt)
@@ -41,7 +40,12 @@ Using nix, we provide a set of common tools for haskell development. In general,
 
 For example, for `ormolu`, not only do we provide the executable itself, we also run it recursively on all files in a given directory. The default behavior is for `ormolu` to run on files individually, so we judge this to be an ergonomic improvement.
 
-We cannot always satisfy the first requirement. For example, the `haddock` tool requires `cabal` and `ghc` to be on the `$PATH` because we cannot hope to provide both in such a way that will work for an arbitrary project. In this case, the extra logic (i.e. `2`) is what is useful, so we consider this acceptable.
+## Alternatives
+
+While `nix-hs-tools` is useful in a pinch, we sometimes want more granularity, e.g. pinning a project to a tool's specific version, or loading a general development shell. For these use-cases, see:
+
+- Haskell flake utils: https://github.com/tbidne/nix-hs-utils
+- Haskell development shells: https://github.com/tbidne/nix-hs-shells
 
 # Introduction
 
@@ -63,7 +67,7 @@ usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
 The version can also be fixed e.g.
 
 ```
-nix run github:tbidne/nix-hs-tools/0.4.0.1#<tool> -- <args>
+nix run github:tbidne/nix-hs-tools/0.9#<tool> -- <args>
 ```
 
 # Tools
@@ -184,38 +188,6 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 ```
 
 ## Haskell Miscellaneous
-
-### Haddock Coverage
-
-**Source:** https://haskell-haddock.readthedocs.io/en/latest/
-
-**Version:** 0.1.1
-
-**Description:** Tool for checking haddock coverage. Unlike the other tools that provide all dependencies, this tool requires `cabal` and `ghc` to be on the `$PATH` and the project to build with `cabal haddock`. In particular, if nix is used to provide dependencies, this command should be run inside the same nix shell.
-
-**Usage:**
-
-```
-haddock-cov [-t|--threshold PERCENTAGE] [-x|--exclude MODULE]
-            [-m|--module-threshold MODULE PERCENTAGE]
-            [-v|--version] <args>
-```
-
-**Examples:**
-
-```
-# checks that all modules in the default package have 100% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock-cov
-
-# checks that all modules in the default package have 70% haddock coverage
-nix run github:tbidne/nix-hs-tools#haddock-cov -- --threshold 70
-
-# checks haddock coverage in all packages, excluding Data.Foo and Bar modules.
-nix run github:tbidne/nix-hs-tools#haddock-cov -- --exclude Data.Foo -x Bar --haddock-all
-
-# drops coverage for Data.Foo and Bar to 70 and 65, respectively.
-nix run github:tbidne/nix-hs-tools#haddock-cov -- --module-threshold Data.Foo 70 -m Bar 65
-```
 
 ### HIE
 
