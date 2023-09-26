@@ -8,7 +8,7 @@ nix-hs-utils.mkShellApp {
   name = "hie";
   text = ''
     set -e
-    if [[ $1 == "--nh-help" ]]; then
+    if [[ $* == "--nh-help" ]]; then
       echo "usage: hie"
       exit 0
     fi

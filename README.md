@@ -67,7 +67,7 @@ usage: nix run github:tbidne/nix-hs-tools#ormolu -- [--dir PATH] <args>
 The version can also be fixed e.g.
 
 ```
-nix run github:tbidne/nix-hs-tools/0.9#<tool> -- <args>
+nix run github:tbidne/nix-hs-tools/0.9.0.1#<tool> -- <args>
 ```
 
 # Tools

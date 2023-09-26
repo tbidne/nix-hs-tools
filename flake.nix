@@ -58,7 +58,7 @@
             \t  - version
             See github.com/tbidne/nix-hs-tools#readme.
           '';
-          version = "0.9";
+          version = "0.9.0.1";
         in
         {
           apps = {
