@@ -12,13 +12,15 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem = { pkgs, ... }:
         let
-          ghcVers = "ghc962";
+          ghcVers = "ghc981";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
               # For some reason, the cabal-fmt in nixpkgs does not have /bin
               # i.e. no executable.
-              cabal-fmt = final.callHackage "cabal-fmt" "0.1.7" { };
-              implicit-hie = prev.implicit-hie_0_1_4_0;
+              #
+              # TODO: 0.1.10 is the latest on hackage, but it's not in nixpkgs'
+              # latest hash
+              cabal-fmt = final.callHackage "cabal-fmt" "0.1.9" { };
             };
           };
 

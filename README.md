@@ -3,7 +3,7 @@
 # nix-hs-tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/tag/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
-![haskell](https://img.shields.io/static/v1?label=&message=9.6&logo=haskell&logoColor=655889&labelColor=2f353e&color=655889)
+![haskell](https://img.shields.io/static/v1?label=&message=9.8&logo=haskell&logoColor=655889&labelColor=2f353e&color=655889)
 [![ci](http://img.shields.io/github/actions/workflow/status/tbidne/nix-hs-tools/ci.yaml?branch=main&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/ci.yaml)
 [![MIT](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/MIT)
 
