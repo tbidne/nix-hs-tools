@@ -1,7 +1,4 @@
-{ compiler
-, nix-hs-utils
-, pkgs
-}:
+{ compiler, nix-hs-utils, pkgs }:
 
 nix-hs-utils.mkShellApp {
   inherit pkgs;

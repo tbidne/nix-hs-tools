@@ -1,7 +1,4 @@
-{ compiler
-, nix-hs-utils
-, pkgs
-}:
+{ compiler, nix-hs-utils, pkgs }:
 
 nix-hs-utils.mkShellApp {
   inherit pkgs;
@@ -42,5 +39,6 @@ nix-hs-utils.mkShellApp {
           ''${args[@]} %"
     fi
   '';
-  runtimeInputs = [ compiler.apply-refact compiler.hlint pkgs.fd pkgs.findutils ];
+  runtimeInputs =
+    [ compiler.apply-refact compiler.hlint pkgs.fd pkgs.findutils ];
 }
