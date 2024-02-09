@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.9.1.0] -- 2024-02-10
+* Added `nixfmt-0.5.0`
+
 ## [0.9.0.1] -- 2023-09-26
 * Fixed no args usage in `hie`.
 

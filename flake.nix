@@ -3,12 +3,7 @@
   inputs.flake-parts.url = "github:hercules-ci/flake-parts";
   inputs.nix-hs-utils.url = "github:tbidne/nix-hs-utils";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs =
-    inputs@{ flake-parts
-    , nix-hs-utils
-    , nixpkgs
-    , self
-    }:
+  outputs = inputs@{ flake-parts, nix-hs-utils, nixpkgs, self }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem = { pkgs, ... }:
         let
@@ -52,6 +47,7 @@
             \tHaskell Miscellaneous:
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
+            \t  - nixfmt:      ${pkgs.nixfmt.version}
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
             \tInformation:
             \t  - help
@@ -59,8 +55,7 @@
             See github.com/tbidne/nix-hs-tools#readme.
           '';
           version = "0.9.0.1";
-        in
-        {
+        in {
           apps = {
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
             fourmolu = import ./tools/fourmolu.nix compilerPkgs;
@@ -79,20 +74,19 @@
 
             hie = import ./tools/hie.nix compilerPkgs;
             hlint = import ./tools/hlint.nix compilerPkgs;
-            nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
+            nixfmt = import ./tools/nixfmt.nix { inherit nix-hs-utils pkgs; };
+            nixpkgs-fmt =
+              import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
             ormolu = import ./tools/ormolu.nix compilerPkgs;
             stylish = import ./tools/stylish.nix compilerPkgs;
             version = {
               type = "app";
               program = "${pkgs.writeShellScript "version.sh" ''
-              echo ${title} ${version}
-            ''}";
+                echo ${title} ${version}
+              ''}";
             };
           };
         };
-      systems = [
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
+      systems = [ "x86_64-darwin" "x86_64-linux" ];
     };
 }

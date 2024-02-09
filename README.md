@@ -28,6 +28,7 @@
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
+[![Static Badge](https://img.shields.io/badge/nixfmt-0.5.0-orange)](#nixfmt)
 [![Static Badge](https://img.shields.io/badge/nixpkgs--fmt-1.3.0-orange)](#nixpkgs-fmt)
 
 </div>
@@ -215,6 +216,20 @@ nix run github:tbidne/nix-hs-tools#hie
 ```
 
 ## Nix Formatters
+
+### Nixfmt
+
+**Source:** https://github.com/serokell/nixfmt
+
+**Description:** The `nixfmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
+
+**Usage:** `nixfmt [--dir PATH] <args>`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
+```
 
 ### Nixpkgs-Fmt
 

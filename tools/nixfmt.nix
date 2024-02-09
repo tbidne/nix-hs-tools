@@ -1,19 +1,19 @@
-{ compiler, nix-hs-utils, pkgs }:
+{ nix-hs-utils, pkgs }:
 
 nix-hs-utils.mkShellApp {
   inherit pkgs;
-  name = "fourmolu";
+  name = "nixfmt";
   text = ''
     set -e
     args=()
     dir=.
     while [ $# -gt 0 ]; do
       if [[ $1 == "--nh-help" ]]; then
-        echo "usage: fourmolu [--dir PATH] <args>"
+        echo "usage: nixfmt [--dir PATH] <args>"
         exit 0
       elif [[ $1 == "--dir" ]]; then
         dir=$2
-        shift
+        shift 1
       else
         args+=("$1")
       fi
@@ -21,7 +21,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${compiler.fourmolu}/bin/fourmolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+    ${pkgs.nixfmt}/bin/nixfmt "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e nix)
   '';
-  runtimeInputs = [ compiler.fourmolu pkgs.fd ];
+  runtimeInputs = [ pkgs.fd pkgs.nixfmt ];
 }
