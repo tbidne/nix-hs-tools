@@ -60,8 +60,7 @@
             See github.com/tbidne/nix-hs-tools#readme.
           '';
           version = "0.10.0.0";
-        in
-        {
+        in {
           apps = {
             cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;

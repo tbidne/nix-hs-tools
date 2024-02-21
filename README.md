@@ -25,7 +25,7 @@
 [![Static Badge](https://img.shields.io/badge/hlint-3.6.1-orange)](#hlint)
 
 ###### Haskell Miscellaneous
-[![Static Badge](https://img.shields.io/badge/cabal-plan-0.7.3.0-orange)](#cabal-plan)
+[![Static Badge](https://img.shields.io/badge/cabal--plan-0.7.3.0-orange)](#cabal-plan)
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
