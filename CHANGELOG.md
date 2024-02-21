@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.10.0.0] -- 2024-??-??
+### Changed
+* Updated tools:
+  * `fourmolu: 0.13.1.0 -> 0.14.0.0`
+  * `nixfmt: 0.5.0 -> 0.6.0`
+  * `ormolu: 0.7.1.0 -> 0.7.2.0`
+
+### Added
+* Added `cabal-plan-0.7.3.0`
+
 ## [0.9.1.0] -- 2024-02-10
 * Added `nixfmt-0.5.0`
 

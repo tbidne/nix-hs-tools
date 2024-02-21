@@ -7,12 +7,17 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem = { pkgs, ... }:
         let
-          ghcVers = "ghc962";
+          # We would like to update to ghc981 since this is a breaking update
+          # anyway, but cabal-plan currently prevents us from doing that.
+          #
+          # We have to either fix cabal-plan in nixpkgs (probs jailbreak)
+          # or build it from hackage here.
+          ghcVers = "ghc964";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
               # For some reason, the cabal-fmt in nixpkgs does not have /bin
               # i.e. no executable.
-              cabal-fmt = final.callHackage "cabal-fmt" "0.1.7" { };
+              #cabal-fmt = final.callHackage "cabal-fmt" "0.1.7" { };
               implicit-hie = prev.implicit-hie_0_1_4_0;
             };
           };
@@ -45,6 +50,7 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
+            \t  - cabal-plan:  ${compiler.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt.version}
@@ -54,9 +60,11 @@
             \t  - version
             See github.com/tbidne/nix-hs-tools#readme.
           '';
-          version = "0.9.1.0";
-        in {
+          version = "0.10.0.0";
+        in
+        {
           apps = {
+            cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
             fourmolu = import ./tools/fourmolu.nix compilerPkgs;
 

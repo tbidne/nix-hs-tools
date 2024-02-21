@@ -22,6 +22,8 @@ jobs:
         app:
           - name: "cabal-fmt"
             cmd: "nix run .#cabal-fmt -- --help"
+          - name: "cabal-plan"
+            cmd: "nix run .#cabal-plan -- --help"
           - name: "fourmolu"
             cmd: "nix run .#fourmolu -- --help"
           - name: "hlint"
