@@ -1,19 +1,5 @@
 set +e
 
-# Test every ghc version w/ all optional tools. Obviously this can take a very
-# long time.
-
-parse_bool (){
-  if [[ $2 == "true" ]]; then
-    echo "--arg $1 true"
-  elif [[ $2 == "false" ]]; then
-    echo "--arg $1 false"
-  else
-    echo "Unexpected arg: '$2'. Expected one of (true | false)."
-    exit 1
-  fi
-}
-
 export LANG="C.UTF-8"
 
 export tools="
