@@ -16,7 +16,7 @@ nix-hs-utils.mkShellApp {
       shift
     done
 
-    ${compiler.cabal-plan}/bin/cabal-plan "''${args[@]}"
+    cabal-plan "''${args[@]}"
   '';
   runtimeInputs = [ compiler.cabal-plan pkgs.graphviz ];
 }

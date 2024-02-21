@@ -17,7 +17,6 @@
             overrides = final: prev: {
               # For some reason, the cabal-fmt in nixpkgs does not have /bin
               # i.e. no executable.
-              #cabal-fmt = final.callHackage "cabal-fmt" "0.1.7" { };
               implicit-hie = prev.implicit-hie_0_1_4_0;
             };
           };

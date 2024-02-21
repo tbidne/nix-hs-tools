@@ -21,7 +21,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${compiler.stylish-haskell}/bin/stylish-haskell "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+    stylish-haskell "''${args[@]}" $(fd "$dir" -e hs)
   '';
   runtimeInputs = [ compiler.stylish-haskell pkgs.fd ];
 }

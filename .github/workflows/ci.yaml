@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - cabal-plan
 
   pull_request:
     branches:
@@ -19,27 +20,6 @@ jobs:
         os:
           - "macos-latest"
           - "ubuntu-latest"
-        app:
-          - name: "cabal-fmt"
-            cmd: "nix run .#cabal-fmt -- --help"
-          - name: "cabal-plan"
-            cmd: "nix run .#cabal-plan -- --help"
-          - name: "fourmolu"
-            cmd: "nix run .#fourmolu -- --help"
-          - name: "hlint"
-            cmd: "nix run .#hlint -- --help"
-          - name: "nixfmt"
-            cmd: "nix run .#nixfmt -- --help"
-          - name: "nixpkgs-fmt"
-            cmd: "nix run .#nixpkgs-fmt"
-          - name: "ormolu"
-            cmd: "nix run .#ormolu -- --help"
-          - name: "stylish"
-            cmd: "nix run .#stylish -- --help"
-          - name: "help"
-            cmd: "nix run .#help"
-          - name: "version"
-            cmd: "nix run .#version"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -54,8 +34,8 @@ jobs:
       - name: Check
         run: nix flake check
 
-      - name: Test ${{ matrix.app.name }}
-        run: ${{ matrix.app.cmd }}
+      - name: Test apps
+        run: ./test/run_tools.sh
 
   style:
     runs-on: ubuntu-latest

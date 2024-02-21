@@ -1,5 +1,7 @@
 { compiler, nix-hs-utils, pkgs }:
 
+# See NOTE: [Exe reference]
+
 nix-hs-utils.mkShellApp {
   inherit pkgs;
   name = "cabal-fmt";
@@ -21,7 +23,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${compiler.cabal-fmt}/bin/cabal-fmt "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e cabal)
+    cabal-fmt "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e cabal)
   '';
   runtimeInputs = [ compiler.cabal-fmt pkgs.fd ];
 }
