@@ -15,8 +15,6 @@
           ghcVers = "ghc964";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
-              # For some reason, the cabal-fmt in nixpkgs does not have /bin
-              # i.e. no executable.
               implicit-hie = prev.implicit-hie_0_1_4_0;
             };
           };
