@@ -12,9 +12,11 @@
           #
           # We have to either fix cabal-plan in nixpkgs (probs jailbreak)
           # or build it from hackage here.
-          ghcVers = "ghc964";
+          ghcVers = "ghc981";
+          hlib = pkgs.haskell.lib;
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
+              cabal-plan = hlib.doJailbreak (final.callHackage "cabal-plan" "0.7.3.0" { });
               implicit-hie = prev.implicit-hie_0_1_4_0;
             };
           };
