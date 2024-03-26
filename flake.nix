@@ -7,21 +7,22 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem = { pkgs, ... }:
         let
-          # We would like to update to ghc981 since this is a breaking update
-          # anyway, but cabal-plan currently prevents us from doing that.
-          #
-          # We have to either fix cabal-plan in nixpkgs (probs jailbreak)
-          # or build it from hackage here.
-          ghcVers = "ghc981";
           hlib = pkgs.haskell.lib;
+
+          ghcVers = "ghc981";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
-              cabal-plan = hlib.doJailbreak (final.callHackage "cabal-plan" "0.7.3.0" { });
               implicit-hie = prev.implicit-hie_0_1_4_0;
             };
           };
 
+          # Using an old version for cabal-plan since it cannot build with
+          # compiler.
+          ghcVersOld = "ghc964";
+          compilerOld = pkgs.haskell.packages."${ghcVersOld}";
+
           compilerPkgs = { inherit compiler nix-hs-utils pkgs; };
+          compilerOldPkgs = { inherit nix-hs-utils pkgs; compiler = compilerOld; };
 
           # misc
           title = "nix-hs-tools";
@@ -49,7 +50,7 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
-            \t  - cabal-plan:  ${compiler.cabal-plan.version}
+            \t  - cabal-plan:  ${compilerOldPkgs.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt.version}
@@ -62,7 +63,7 @@
           version = "0.10.0.0";
         in {
           apps = {
-            cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
+            cabal-plan = import ./tools/cabal-plan.nix compilerOldPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
             fourmolu = import ./tools/fourmolu.nix compilerPkgs;
 
