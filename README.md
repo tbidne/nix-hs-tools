@@ -29,7 +29,7 @@
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
-[![Static Badge](https://img.shields.io/badge/nixfmt--unstable-2024--03--01-orange)](#nixfmt)
+[![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2024--03--01-orange)](#nixfmt)
 [![Static Badge](https://img.shields.io/badge/nixpkgs--fmt-1.3.0-orange)](#nixpkgs-fmt)
 
 </div>
@@ -50,6 +50,7 @@
     - [Cabal Plan](#cabal-plan)
     - [HIE](#hie)
   - [Nix Formatters](#nix-formatters)
+    - [Nixfmt](#nixfmt)
     - [Nixpkgs-Fmt](#nixpkgs-fmt)
   - [Information](#information)
     - [Help](#help)
@@ -235,7 +236,7 @@ nix run github:tbidne/nix-hs-tools#hie
 
 ### Nixfmt
 
-**Source:** https://github.com/serokell/nixfmt
+**Source:** https://github.com/NixOS/nixfmt
 
 **Description:** The `nixfmt` formatter. Recursively formats all `*.nix` files in the current directory or `--dir`.
 
