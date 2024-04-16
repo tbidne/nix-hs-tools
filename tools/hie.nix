@@ -8,8 +8,11 @@ nix-hs-utils.mkShellApp {
     if [[ $* == "--nh-help" ]]; then
       echo "usage: hie"
       exit 0
+    elif [[ $* == "--help" ]]; then
+      gen-hie --help
+      exit 0
     fi
-    ${compiler.implicit-hie}/bin/gen-hie > hie.yaml
+    gen-hie > hie.yaml
   '';
   runtimeInputs = [ compiler.implicit-hie ];
 }

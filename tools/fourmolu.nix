@@ -21,7 +21,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${compiler.fourmolu}/bin/fourmolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+    fourmolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
   '';
   runtimeInputs = [ compiler.fourmolu pkgs.fd ];
 }

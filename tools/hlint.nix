@@ -25,16 +25,16 @@ nix-hs-utils.mkShellApp {
 
     if [[ $refact == 0 ]]; then
       # shellcheck disable=SC2046
-      ${compiler.hlint}/bin/hlint --ignore-glob=dist-newstyle --ignore-glob=stack-work "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+      hlint --ignore-glob=dist-newstyle --ignore-glob=stack-work "''${args[@]}" $(fd "$dir" -e hs)
     else
       # refactor works on individual files only
       # shellcheck disable=SC2145
-      ${pkgs.fd}/bin/fd "$dir" -e hs | ${pkgs.findutils}/bin/xargs -I % sh -c "
-        ${compiler.hlint}/bin/hlint \
+      fd "$dir" -e hs | xargs -I % sh -c "
+        hlint \
           --ignore-glob=dist-newstyle \
           --ignore-glob=stack-work \
           --refactor \
-          --with-refactor ${compiler.apply-refact}/bin/refactor \
+          --with-refactor refactor \
           --refactor-options=-i \
           ''${args[@]} %"
     fi

@@ -21,7 +21,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2086
-    ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt $dir "''${args[@]}"
+    nixpkgs-fmt $dir "''${args[@]}"
   '';
   runtimeInputs = [ pkgs.nixpkgs-fmt ];
 }

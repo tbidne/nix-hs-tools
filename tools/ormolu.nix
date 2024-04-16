@@ -1,5 +1,11 @@
 { compiler, nix-hs-utils, pkgs }:
 
+# NOTE: [Exe reference]
+#
+# For some reason, referencing bare ormolu below in the script is better
+# than writing ${compiler.ormolu}/bin/ormolu, as the latter does not actually
+# exist.
+
 nix-hs-utils.mkShellApp {
   inherit pkgs;
   name = "ormolu";
@@ -21,7 +27,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${compiler.ormolu}/bin/ormolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
+    ormolu "''${args[@]}" $(fd "$dir" -e hs)
   '';
   runtimeInputs = [ compiler.ormolu pkgs.fd ];
 }

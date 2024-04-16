@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.10.0.0] -- 2024-??-??
+### Changed
+* Updated tools:
+  * `cabal-fmt: 0.1.7.0 -> 0.1.11.0`
+  * `fourmolu: 0.13.1.0 -> 0.15.0.0`
+  * `hlint: 3.6.1 -> 3.8`
+  * `ormolu: 0.7.1.0 -> 0.7.4.0`
+  * `stylish: 0.14.5.0 -> 0.14.6.0`
+* `nixfmt` now points to `nixfmt-rfc-style`.
+
 ## [0.9.1.0] -- 2024-02-10
 * Added `nixfmt-0.5.0`
 

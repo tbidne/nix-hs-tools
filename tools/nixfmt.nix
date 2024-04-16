@@ -21,7 +21,7 @@ nix-hs-utils.mkShellApp {
     done
 
     # shellcheck disable=SC2046
-    ${pkgs.nixfmt}/bin/nixfmt "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e nix)
+    nixfmt "''${args[@]}" $(fd "$dir" -e nix)
   '';
-  runtimeInputs = [ pkgs.fd pkgs.nixfmt ];
+  runtimeInputs = [ pkgs.fd pkgs.nixfmt-rfc-style ];
 }
