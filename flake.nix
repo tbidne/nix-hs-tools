@@ -16,13 +16,7 @@
             };
           };
 
-          # Using an old version for cabal-plan since it cannot build with
-          # compiler.
-          ghcVersOld = "ghc964";
-          compilerOld = pkgs.haskell.packages."${ghcVersOld}";
-
           compilerPkgs = { inherit compiler nix-hs-utils pkgs; };
-          compilerOldPkgs = { inherit nix-hs-utils pkgs; compiler = compilerOld; };
 
           # misc
           title = "nix-hs-tools";
@@ -50,7 +44,7 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
-            \t  - cabal-plan:  ${compilerOld.cabal-plan.version}
+            \t  - cabal-plan:  ${compiler.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt.version}
@@ -63,7 +57,7 @@
           version = "0.10.0.0";
         in {
           apps = {
-            cabal-plan = import ./tools/cabal-plan.nix compilerOldPkgs;
+            cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
             fourmolu = import ./tools/fourmolu.nix compilerPkgs;
 
