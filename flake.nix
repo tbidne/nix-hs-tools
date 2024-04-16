@@ -47,7 +47,7 @@
             \t  - cabal-plan:  ${compiler.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
-            \t  - nixfmt:      ${pkgs.nixfmt.version}
+            \t  - nixfmt:      ${pkgs.nixfmt-rfc-style.version}
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
             \tInformation:
             \t  - help

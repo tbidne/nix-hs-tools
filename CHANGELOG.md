@@ -12,9 +12,9 @@ and this project adheres to the
   * `cabal-fmt: 0.1.7.0 -> 0.1.11.0`
   * `fourmolu: 0.13.1.0 -> 0.15.0.0`
   * `hlint: 3.6.1 -> 3.8`
-  * `nixfmt: 0.5.0 -> 0.6.0`
   * `ormolu: 0.7.1.0 -> 0.7.4.0`
   * `stylish: 0.14.5.0 -> 0.14.6.0`
+* `nixfmt` now points to `nixfmt-rfc-style`.
 
 ### Added
 * Added `cabal-plan-0.7.3.0`
