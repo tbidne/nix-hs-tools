@@ -3,20 +3,27 @@
   inputs.flake-parts.url = "github:hercules-ci/flake-parts";
   inputs.nix-hs-utils.url = "github:tbidne/nix-hs-utils";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = inputs@{ flake-parts, nix-hs-utils, nixpkgs, self }:
+  outputs =
+    inputs@{
+      flake-parts,
+      nix-hs-utils,
+      nixpkgs,
+      self,
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      perSystem = { pkgs, ... }:
+      perSystem =
+        { pkgs, ... }:
         let
           hlib = pkgs.haskell.lib;
 
           ghcVers = "ghc981";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
-            overrides = final: prev: {
-              stylish-haskell = prev.stylish-haskell_0_14_6_0;
-            };
+            overrides = final: prev: { stylish-haskell = prev.stylish-haskell_0_14_6_0; };
           };
 
-          compilerPkgs = { inherit compiler nix-hs-utils pkgs; };
+          compilerPkgs = {
+            inherit compiler nix-hs-utils pkgs;
+          };
 
           # misc
           title = "nix-hs-tools";
@@ -55,7 +62,8 @@
             See github.com/tbidne/nix-hs-tools#readme.
           '';
           version = "0.10.0.0";
-        in {
+        in
+        {
           apps = {
             cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
@@ -76,8 +84,7 @@
             hie = import ./tools/hie.nix compilerPkgs;
             hlint = import ./tools/hlint.nix compilerPkgs;
             nixfmt = import ./tools/nixfmt.nix { inherit nix-hs-utils pkgs; };
-            nixpkgs-fmt =
-              import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
+            nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
             ormolu = import ./tools/ormolu.nix compilerPkgs;
             stylish = import ./tools/stylish.nix compilerPkgs;
             version = {
@@ -88,6 +95,9 @@
             };
           };
         };
-      systems = [ "x86_64-darwin" "x86_64-linux" ];
+      systems = [
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
     };
 }

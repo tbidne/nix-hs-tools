@@ -48,5 +48,5 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: nixpkgs-fmt
+      - name: nixfmt
         run: nix run .#nixfmt -- --check

@@ -1,4 +1,8 @@
-{ compiler, nix-hs-utils, pkgs }:
+{
+  compiler,
+  nix-hs-utils,
+  pkgs,
+}:
 
 # NOTE: [Exe reference]
 #
@@ -29,5 +33,8 @@ nix-hs-utils.mkShellApp {
     # shellcheck disable=SC2046
     ormolu "''${args[@]}" $(fd "$dir" -e hs)
   '';
-  runtimeInputs = [ compiler.ormolu pkgs.fd ];
+  runtimeInputs = [
+    compiler.ormolu
+    pkgs.fd
+  ];
 }

@@ -1,4 +1,8 @@
-{ compiler, nix-hs-utils, pkgs }:
+{
+  compiler,
+  nix-hs-utils,
+  pkgs,
+}:
 
 nix-hs-utils.mkShellApp {
   inherit pkgs;
@@ -18,5 +22,8 @@ nix-hs-utils.mkShellApp {
 
     cabal-plan "''${args[@]}"
   '';
-  runtimeInputs = [ compiler.cabal-plan pkgs.graphviz ];
+  runtimeInputs = [
+    compiler.cabal-plan
+    pkgs.graphviz
+  ];
 }

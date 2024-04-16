@@ -1,4 +1,8 @@
-{ compiler, nix-hs-utils, pkgs }:
+{
+  compiler,
+  nix-hs-utils,
+  pkgs,
+}:
 
 nix-hs-utils.mkShellApp {
   inherit pkgs;
@@ -23,5 +27,8 @@ nix-hs-utils.mkShellApp {
     # shellcheck disable=SC2046
     fourmolu "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e hs)
   '';
-  runtimeInputs = [ compiler.fourmolu pkgs.fd ];
+  runtimeInputs = [
+    compiler.fourmolu
+    pkgs.fd
+  ];
 }

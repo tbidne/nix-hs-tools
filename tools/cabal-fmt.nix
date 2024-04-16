@@ -1,4 +1,8 @@
-{ compiler, nix-hs-utils, pkgs }:
+{
+  compiler,
+  nix-hs-utils,
+  pkgs,
+}:
 
 # See NOTE: [Exe reference]
 
@@ -25,5 +29,8 @@ nix-hs-utils.mkShellApp {
     # shellcheck disable=SC2046
     cabal-fmt "''${args[@]}" $(${pkgs.fd}/bin/fd "$dir" -e cabal)
   '';
-  runtimeInputs = [ compiler.cabal-fmt pkgs.fd ];
+  runtimeInputs = [
+    compiler.cabal-fmt
+    pkgs.fd
+  ];
 }
