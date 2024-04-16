@@ -16,6 +16,9 @@ and this project adheres to the
   * `stylish: 0.14.5.0 -> 0.14.6.0`
 * `nixfmt` now points to `nixfmt-rfc-style`.
 
+### Added
+* Added `cabal-plan-0.7.3.0`
+
 ## [0.9.1.0] -- 2024-02-10
 * Added `nixfmt-0.5.0`
 

@@ -4,6 +4,7 @@ export LANG="C.UTF-8"
 
 export tools="
    cabal-fmt
+   cabal-plan
    fourmolu
    hie
    hlint

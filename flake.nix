@@ -44,6 +44,7 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
+            \t  - cabal-plan:  ${compiler.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt-rfc-style.version}
@@ -56,6 +57,7 @@
           version = "0.10.0.0";
         in {
           apps = {
+            cabal-plan = import ./tools/cabal-plan.nix compilerPkgs;
             cabal-fmt = import ./tools/cabal-fmt.nix compilerPkgs;
             fourmolu = import ./tools/fourmolu.nix compilerPkgs;
 

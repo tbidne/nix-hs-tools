@@ -25,6 +25,7 @@
 [![Static Badge](https://img.shields.io/badge/hlint-3.8-orange)](#hlint)
 
 ###### Haskell Miscellaneous
+[![Static Badge](https://img.shields.io/badge/cabal--plan-0.7.3.0-orange)](#cabal-plan)
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
@@ -46,6 +47,7 @@
   - [Haskell Linters](#haskell-linters)
     - [HLint](#hlint)
   - [Haskell Miscellaneous](#haskell-miscellaneous)
+    - [Cabal Plan](#cabal-plan)
     - [HIE](#hie)
   - [Nix Formatters](#nix-formatters)
     - [Nixpkgs-Fmt](#nixpkgs-fmt)
@@ -200,6 +202,20 @@ nix run github:tbidne/nix-hs-tools#hlint -- --refact --refactor-options=""
 ```
 
 ## Haskell Miscellaneous
+
+### Cabal Plan
+
+**Source:** https://github.com/haskell-hvr/cabal-plan/
+
+**Description:** The `cabal-plan` tool.
+
+**Usage:** `cabal-plan`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#cabal-plan
+```
 
 ### HIE
 
