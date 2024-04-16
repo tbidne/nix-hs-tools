@@ -125,6 +125,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[0.10]: https://github.com/tbidne/nix-hs-tools/compare/0.9.1.0...0.10
 [0.9.1.0]: https://github.com/tbidne/nix-hs-tools/compare/0.9.0.1...0.9.1.0
 [0.9.0.1]: https://github.com/tbidne/nix-hs-tools/compare/0.9...0.9.0.1
 [0.9]: https://github.com/tbidne/nix-hs-tools/compare/0.8...0.9
