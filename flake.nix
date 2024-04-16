@@ -12,7 +12,7 @@
           ghcVers = "ghc981";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
             overrides = final: prev: {
-              implicit-hie = prev.implicit-hie_0_1_4_0;
+              stylish-haskell = prev.stylish-haskell_0_14_6_0;
             };
           };
 
@@ -50,7 +50,7 @@
             \tHaskell Linters:
             \t  - hlint:       ${compiler.hlint.version}
             \tHaskell Miscellaneous:
-            \t  - cabal-plan:  ${compilerOldPkgs.cabal-plan.version}
+            \t  - cabal-plan:  ${compilerOld.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt.version}
