@@ -9,9 +9,12 @@ and this project adheres to the
 ## [0.10.0.0] -- 2024-??-??
 ### Changed
 * Updated tools:
-  * `fourmolu: 0.13.1.0 -> 0.14.0.0`
+  * `cabal-fmt: 0.1.7.0 -> 0.1.11.0`
+  * `fourmolu: 0.13.1.0 -> 0.15.0.0`
+  * `hlint: 3.6.1 -> 3.8`
   * `nixfmt: 0.5.0 -> 0.6.0`
-  * `ormolu: 0.7.1.0 -> 0.7.2.0`
+  * `ormolu: 0.7.1.0 -> 0.7.4.0`
+  * `stylish: 0.14.5.0 -> 0.14.6.0`
 
 ### Added
 * Added `cabal-plan-0.7.3.0`

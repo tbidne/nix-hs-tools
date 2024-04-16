@@ -16,13 +16,13 @@
 <div align="center">
 
 ###### Haskell Formatters
-[![Static Badge](https://img.shields.io/badge/cabal--fmt-0.1.7-orange)](#cabal-fmt)
-[![Static Badge](https://img.shields.io/badge/fourmolu-0.14.0.0-orange)](#fourmolu)
-[![Static Badge](https://img.shields.io/badge/ormolu-0.7.2.0-orange)](#ormolu)
-[![Static Badge](https://img.shields.io/badge/stylish-0.14.5.0-orange)](#stylish)
+[![Static Badge](https://img.shields.io/badge/cabal--fmt-0.1.11-orange)](#cabal-fmt)
+[![Static Badge](https://img.shields.io/badge/fourmolu-0.15.0.0-orange)](#fourmolu)
+[![Static Badge](https://img.shields.io/badge/ormolu-0.7.4.0-orange)](#ormolu)
+[![Static Badge](https://img.shields.io/badge/stylish-0.14.6.0-orange)](#stylish)
 
 ###### Haskell Linters
-[![Static Badge](https://img.shields.io/badge/hlint-3.6.1-orange)](#hlint)
+[![Static Badge](https://img.shields.io/badge/hlint-3.8-orange)](#hlint)
 
 ###### Haskell Miscellaneous
 [![Static Badge](https://img.shields.io/badge/cabal--plan-0.7.3.0-orange)](#cabal-plan)
