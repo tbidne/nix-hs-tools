@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
-## [0.10.0.0] -- 2024-??-??
+## [0.10] -- 2024-04-16
 ### Changed
 * Updated tools:
   * `cabal-fmt: 0.1.7.0 -> 0.1.11.0`
