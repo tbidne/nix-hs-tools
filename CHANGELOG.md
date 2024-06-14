@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [0.10.1]
+### Added
+* `aarch64` darwin and linux support.
+
 ## [0.10] -- 2024-04-16
 ### Changed
 * Updated tools:
@@ -125,6 +129,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[0.10.1]: https://github.com/tbidne/nix-hs-tools/compare/0.10...0.10.1
 [0.10]: https://github.com/tbidne/nix-hs-tools/compare/0.9.1.0...0.10
 [0.9.1.0]: https://github.com/tbidne/nix-hs-tools/compare/0.9.0.1...0.9.1.0
 [0.9.0.1]: https://github.com/tbidne/nix-hs-tools/compare/0.9...0.9.0.1
