@@ -3,7 +3,7 @@
 # nix-hs-tools
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/tag/tbidne/nix-hs-tools?include_prereleases&sort=semver)](https://github.com/tbidne/nix-hs-tools/releases/)
-![haskell](https://img.shields.io/static/v1?label=&message=9.8&logo=haskell&logoColor=655889&labelColor=2f353e&color=655889)
+![haskell](https://img.shields.io/static/v1?label=&message=9.10&logo=haskell&logoColor=655889&labelColor=2f353e&color=655889)
 [![ci](http://img.shields.io/github/actions/workflow/status/tbidne/nix-hs-tools/ci.yaml?branch=main&logoColor=85c5e7&labelColor=2f353c)](https://github.com/tbidne/nix-hs-tools/actions/workflows/ci.yaml)
 [![MIT](https://img.shields.io/github/license/tbidne/nix-hs-tools?color=blue)](https://opensource.org/licenses/MIT)
 
@@ -15,21 +15,23 @@
 
 <div align="center">
 
+TODO: Check versions w/ final nixpkgs
+
 ###### Haskell Formatters
-[![Static Badge](https://img.shields.io/badge/cabal--fmt-0.1.11-orange)](#cabal-fmt)
-[![Static Badge](https://img.shields.io/badge/fourmolu-0.15.0.0-orange)](#fourmolu)
-[![Static Badge](https://img.shields.io/badge/ormolu-0.7.4.0-orange)](#ormolu)
+[![Static Badge](https://img.shields.io/badge/cabal--fmt-0.1.12-orange)](#cabal-fmt)
+[![Static Badge](https://img.shields.io/badge/fourmolu-0.16.2.0-orange)](#fourmolu)
+[![Static Badge](https://img.shields.io/badge/ormolu-0.7.7.0-orange)](#ormolu)
 [![Static Badge](https://img.shields.io/badge/stylish-0.14.6.0-orange)](#stylish)
 
 ###### Haskell Linters
 [![Static Badge](https://img.shields.io/badge/hlint-3.8-orange)](#hlint)
 
 ###### Haskell Miscellaneous
-[![Static Badge](https://img.shields.io/badge/cabal--plan-0.7.3.0-orange)](#cabal-plan)
+[![Static Badge](https://img.shields.io/badge/cabal--plan-0.7.4.0-orange)](#cabal-plan)
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
-[![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2024--03--01-orange)](#nixfmt)
+[![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2024--08--16-orange)](#nixfmt)
 [![Static Badge](https://img.shields.io/badge/nixpkgs--fmt-1.3.0-orange)](#nixpkgs-fmt)
 
 ###### Other

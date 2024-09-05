@@ -6,7 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
-## [Unreleased]
+TODO: Check versions w/ final nixpkgs
+
+## [0.11]
+### Changed
+* Updated tools:
+  * `cabal-fmt: 0.1.11.0 -> 0.1.12`
+  * `cabal-plan: 0.7.3.0 -> 0.7.4.0`
+  * `fourmolu: 0.15.0.0 -> 0.16.2.0`
+  * `hlint: 3.8 -> ???`
+  * `nixfmt: 2024-03-01 -> 2024-08-16`
+  * `ormolu: 0.7.4.0 -> 0.7.7.0`
+  * `stylish: 0.14.6.0 -> ???`
+
 ### Added
 * `aarch64` darwin and linux support.
 * `prettier-3.2.5`
@@ -131,7 +143,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
-[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.10...main
+[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.10...0.11
 [0.10]: https://github.com/tbidne/nix-hs-tools/compare/0.9.1.0...0.10
 [0.9.1.0]: https://github.com/tbidne/nix-hs-tools/compare/0.9.0.1...0.9.1.0
 [0.9.0.1]: https://github.com/tbidne/nix-hs-tools/compare/0.9...0.9.0.1

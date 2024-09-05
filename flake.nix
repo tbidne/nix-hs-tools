@@ -16,9 +16,42 @@
         let
           hlib = pkgs.haskell.lib;
 
-          ghcVers = "ghc981";
+          # FIXME: The following issues need to be resolved before we can release:
+          #
+          # - New hlint release
+          #   - See https://github.com/ndmitchell/hlint/issues/1613
+          #
+          # - cabal-plan is broken
+          #
+          # - New stylish release
+          #   - https://github.com/haskell/stylish-haskell/issues/479
+          #
+          ghcVers = "ghc9101";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
-            overrides = final: prev: { stylish-haskell = prev.stylish-haskell_0_14_6_0; };
+            overrides = final: prev: {
+              # cabal-plan needs ansi-terminal > 1.0.2. Note that all of our
+              # haskell tools are OK with the default ansi-terminal, so make
+              # sure overriding this does not destory caching for other
+              # tools.
+              ansi-terminal = prev.ansi-terminal_1_1_1;
+              ansi-terminal-types = prev.ansi-terminal-types_1_1;
+
+              # NOTE: Disabling test failures as the suite current fails
+              # due to different call stack output (i.e. it probably
+              # doesn't matter to us).
+              call-stack = hlib.dontCheck prev.call-stack;
+
+              cabal-plan = prev.cabal-plan_0_7_4_0;
+              fourmolu = prev.fourmolu_0_16_2_0;
+              # FIXME: Need a newer version of hlint for GHC 9.10
+              # (presumably 3.10). Currently waiting for this to be released
+              # to hackage, then make it to nixpkgs...
+              #
+              #     https://github.com/ndmitchell/hlint/issues/1613
+              hlint = prev.hlint_3_8;
+              ormolu = prev.ormolu_0_7_7_0;
+              stylish-haskell = prev.stylish-haskell_0_14_6_0;
+            };
           };
 
           pkgsUtils = {
@@ -68,7 +101,7 @@
             \t  - version
             See github.com/tbidne/nix-hs-tools#readme.
           '';
-          version = "0.10";
+          version = "0.11";
         in
         {
           apps = {
