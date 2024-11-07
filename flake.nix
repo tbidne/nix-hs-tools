@@ -21,6 +21,10 @@
             overrides = final: prev: { stylish-haskell = prev.stylish-haskell_0_14_6_0; };
           };
 
+          pkgsUtils = {
+            inherit nix-hs-utils pkgs;
+          };
+
           compilerPkgs = {
             inherit compiler nix-hs-utils pkgs;
           };
@@ -56,6 +60,9 @@
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt-rfc-style.version}
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
+            \Other:
+            \t  - prettier:    ${pkgs.nodePackages.prettier.version}
+            \t  - yamllint:    ${pkgs.yamllint.version}
             \tInformation:
             \t  - help
             \t  - version
@@ -83,10 +90,12 @@
 
             hie = import ./tools/hie.nix compilerPkgs;
             hlint = import ./tools/hlint.nix compilerPkgs;
-            nixfmt = import ./tools/nixfmt.nix { inherit nix-hs-utils pkgs; };
-            nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix { inherit nix-hs-utils pkgs; };
+            nixfmt = import ./tools/nixfmt.nix pkgsUtils;
+            nixpkgs-fmt = import ./tools/nixpkgs-fmt.nix pkgsUtils;
             ormolu = import ./tools/ormolu.nix compilerPkgs;
+            prettier = import ./tools/prettier.nix pkgsUtils;
             stylish = import ./tools/stylish.nix compilerPkgs;
+            yamllint = import ./tools/yamllint.nix pkgsUtils;
             version = {
               type = "app";
               program = "${pkgs.writeShellScript "version.sh" ''

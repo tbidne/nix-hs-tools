@@ -15,7 +15,9 @@ export tools="
    nixfmt
    nixpkgs-fmt
    ormolu
+   prettier
    stylish
+   yamllint
    help
    version
    "

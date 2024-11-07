@@ -32,6 +32,10 @@
 [![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2024--03--01-orange)](#nixfmt)
 [![Static Badge](https://img.shields.io/badge/nixpkgs--fmt-1.3.0-orange)](#nixpkgs-fmt)
 
+###### Other
+[![Static Badge](https://img.shields.io/badge/prettier-3.2.5-orange)](#prettier)
+[![Static Badge](https://img.shields.io/badge/yamllint-1.35.1-orange)](#yamllint)
+
 </div>
 
 ---
@@ -52,6 +56,9 @@
   - [Nix Formatters](#nix-formatters)
     - [Nixfmt](#nixfmt)
     - [Nixpkgs-Fmt](#nixpkgs-fmt)
+  - [Other](#other)
+    - [Prettier](#prettier)
+    - [Yamllint](#yamllint)
   - [Information](#information)
     - [Help](#help)
     - [Version](#version)
@@ -260,6 +267,36 @@ nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
 
 ```
 nix run github:tbidne/nix-hs-tools#nixpkgs-fmt
+```
+
+## Other
+
+### Prettier
+
+**Source:** https://github.com/prettier/prettier
+
+**Description:** The `prettier` formatter.
+
+**Usage:** `prettier [-y|--yaml] <args>`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#prettier
+```
+
+### Yamllint
+
+**Source:** https://github.com/adrienverge/yamllint
+
+**Description:** The `yamllint` linter. Lints all `*.yaml` files in the current directory or `--dir`.
+
+**Usage:** `yamllint [--dir PATH] <args>`.
+
+**Examples:**
+
+```
+nix run github:tbidne/nix-hs-tools#yamllint
 ```
 
 # Information
