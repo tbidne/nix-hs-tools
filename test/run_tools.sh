@@ -22,8 +22,10 @@ export tools="
 
 run_tool () {
   if [[ $1 == "nixpkgs-fmt" ]]; then
-    # nixpkgs-fmt --help exits with 1
-    cmd_str="nix run .#nixpkgs-fmt"
+    # nixpkgs-fmt --help exits with 1. We include the test dir -- with no
+    # .nix files -- since otherwise running locally will format our nix files
+    # here, which is mildly annoying.
+    cmd_str="nix run .#nixpkgs-fmt -- --dir ./test"
   elif [[ $1 == "help" ]]; then
     cmd_str="nix run .#help"
   elif [[ $1 == "version" ]]; then
