@@ -2,6 +2,10 @@ set +e
 
 export LANG="C.UTF-8"
 
+curr_timestamp () {
+  date '+%s'
+}
+
 export tools="
    cabal-fmt
    cabal-plan
@@ -36,23 +40,39 @@ run_tool () {
 succeeded_str="SUCCEEDED:"
 failed_str="FAILED:"
 any_failed=0
+
+global_start_ts=$(curr_timestamp)
+
 for tool in $tools; do
   echo "*** TESTING: $tool ***"
 
-  run_tool $tool
+  start_ts=$(curr_timestamp)
 
+  run_tool $tool
   exit_code=$?
+
+  end_ts=$(curr_timestamp)
+
+  diff_sec=$(( $end_ts - $start_ts ))
+
   if [[ $exit_code -ne 0 ]]; then
-    echo -e "\n*** FAILED: $tool ***\n"
+    echo -e "\n*** FAILED: $tool ($diff_sec seconds) ***\n"
     failed_str+=" $tool"
     any_failed=1
   else
-    echo -e "\n*** SUCCEEDED: $tool ***\n"
+    echo -e "\n*** SUCCEEDED: $tool ($diff_sec seconds) ***\n"
     succeeded_str+=" $tool"
   fi
 
 done
 
+global_end_ts=$(curr_timestamp)
+
+global_diff_sec=$(( $global_end_ts - $global_start_ts ))
+
 echo $succeeded_str
 echo $failed_str
+
+echo "TIME: $global_diff_sec seconds"
+
 exit $any_failed
