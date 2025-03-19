@@ -31,11 +31,11 @@ TODO: Check versions w/ final nixpkgs
 [![Static Badge](https://img.shields.io/badge/hie-0.1.4.0-orange)](#hie)
 
 ###### Nix Formatters
-[![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2024--08--16-orange)](#nixfmt)
+[![Static Badge](https://img.shields.io/badge/nixfmt-unstable--2025--03--03-orange)](#nixfmt)
 [![Static Badge](https://img.shields.io/badge/nixpkgs--fmt-1.3.0-orange)](#nixpkgs-fmt)
 
 ###### Other
-[![Static Badge](https://img.shields.io/badge/prettier-3.2.5-orange)](#prettier)
+[![Static Badge](https://img.shields.io/badge/prettier-3.5.2-orange)](#prettier)
 [![Static Badge](https://img.shields.io/badge/yamllint-1.35.1-orange)](#yamllint)
 
 </div>

@@ -33,7 +33,7 @@
               # haskell tools are OK with the default ansi-terminal, so make
               # sure overriding this does not destory caching for other
               # tools.
-              ansi-terminal = prev.ansi-terminal_1_1_1;
+              ansi-terminal = prev.ansi-terminal_1_1_2;
               ansi-terminal-types = prev.ansi-terminal-types_1_1;
 
               # NOTE: Disabling test failures as the suite current fails
