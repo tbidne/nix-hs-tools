@@ -16,9 +16,9 @@
         let
           hlib = pkgs.haskell.lib;
 
-          ghcVers = "ghc981";
+          ghcVers = "ghc9122";
           compiler = pkgs.haskell.packages."${ghcVers}".override {
-            overrides = final: prev: { stylish-haskell = prev.stylish-haskell_0_14_6_0; };
+            overrides = final: prev: { Cabal-syntax_3_10_3_0 = hlib.doJailbreak prev.Cabal-syntax_3_10_3_0; };
           };
 
           pkgsUtils = {
@@ -60,7 +60,7 @@
             \tNix Formatters:
             \t  - nixfmt:      ${pkgs.nixfmt-rfc-style.version}
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
-            \Other:
+            \tOther:
             \t  - prettier:    ${pkgs.nodePackages.prettier.version}
             \t  - yamllint:    ${pkgs.yamllint.version}
             \tInformation:
@@ -68,7 +68,7 @@
             \t  - version
             See github.com/tbidne/nix-hs-tools#readme.
           '';
-          version = "0.10";
+          version = "0.11";
         in
         {
           apps = {
