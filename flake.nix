@@ -16,10 +16,11 @@
         let
           hlib = pkgs.haskell.lib;
 
-          ghcVers = "ghc9122";
-          compiler = pkgs.haskell.packages."${ghcVers}".override {
-            overrides = final: prev: { Cabal-syntax_3_10_3_0 = hlib.doJailbreak prev.Cabal-syntax_3_10_3_0; };
-          };
+          # FIXME: At least wait until we have a new hlint to make a new
+          # release.
+
+          ghcVers = "ghc9141";
+          compiler = pkgs.haskell.packages."${ghcVers}".override { };
 
           pkgsUtils = {
             inherit nix-hs-utils pkgs;
@@ -58,17 +59,17 @@
             \t  - cabal-plan:  ${compiler.cabal-plan.version}
             \t  - hie:         ${compiler.implicit-hie.version}
             \tNix Formatters:
-            \t  - nixfmt:      ${pkgs.nixfmt-rfc-style.version}
+            \t  - nixfmt:      ${pkgs.nixfmt.version}
             \t  - nixpkgs-fmt: ${pkgs.nixpkgs-fmt.version}
             \tOther:
-            \t  - prettier:    ${pkgs.nodePackages.prettier.version}
+            \t  - prettier:    ${pkgs.prettier.version}
             \t  - yamllint:    ${pkgs.yamllint.version}
             \tInformation:
             \t  - help
             \t  - version
             See github.com/tbidne/nix-hs-tools#readme.
           '';
-          version = "0.11";
+          version = "0.12";
         in
         {
           apps = {

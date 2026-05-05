@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - ghc914
 
   pull_request:
     branches:

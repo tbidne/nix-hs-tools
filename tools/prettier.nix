@@ -25,5 +25,5 @@ nix-hs-utils.mkShellApp {
 
     prettier "''${args[@]}" "$ext"
   '';
-  runtimeInputs = [ pkgs.nodePackages.prettier ];
+  runtimeInputs = [ pkgs.prettier ];
 }

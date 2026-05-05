@@ -25,6 +25,6 @@ nix-hs-utils.mkShellApp {
   '';
   runtimeInputs = [
     pkgs.fd
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
   ];
 }

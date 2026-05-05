@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to the
 [Haskell Package Versioning Policy](https://pvp.haskell.org/).
 
+## [Unreleased]
+### Changed
+* Updated tools:
+  * `cabal-plan: 0.7.5.0 -> 0.7.6.1`
+  * `fourmolu: 0.18.0.0 -> 0.19.0.1`
+  * `nixfmt: 1.0.0 -> 1.2.0`
+  * `ormolu: 0.8.0.0 -> 0.8.0.2`
+
 ## [0.11] -- 2025-09-19
 ### Changed
 * Updated tools:
@@ -141,6 +149,7 @@ and this project adheres to the
 
 * First version. Released on an unsuspecting world.
 
+[Unreleased]: https://github.com/tbidne/nix-hs-tools/compare/0.11...main
 [0.11]: https://github.com/tbidne/nix-hs-tools/compare/0.10...0.11
 [0.10]: https://github.com/tbidne/nix-hs-tools/compare/0.9.1.0...0.10
 [0.9.1.0]: https://github.com/tbidne/nix-hs-tools/compare/0.9.0.1...0.9.1.0
